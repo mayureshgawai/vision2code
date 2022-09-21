@@ -1,0 +1,119 @@
+2022-09-21 15:34:31,375: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+2022-09-21 15:34:31,376: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 15:34:31,395: INFO::  * Restarting with stat
+2022-09-21 15:34:32,669: WARNING::  * Debugger is active!
+2022-09-21 15:34:32,679: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 15:34:54,820: INFO:: 127.0.0.1 - - [21/Sep/2022 15:34:54] "GET / HTTP/1.1" 200 -
+2022-09-21 15:34:55,246: INFO:: 127.0.0.1 - - [21/Sep/2022 15:34:55] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 15:34:55,246: INFO:: 127.0.0.1 - - [21/Sep/2022 15:34:55] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 15:34:55,247: INFO:: 127.0.0.1 - - [21/Sep/2022 15:34:55] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 15:40:44,358: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 15:40:44,358: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 15:40:44,368: INFO::  * Restarting with stat
+2022-09-21 15:40:45,662: WARNING::  * Debugger is active!
+2022-09-21 15:40:45,671: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 15:40:53,360: INFO:: 127.0.0.1 - - [21/Sep/2022 15:40:53] "GET / HTTP/1.1" 200 -
+2022-09-21 15:40:53,698: INFO:: 127.0.0.1 - - [21/Sep/2022 15:40:53] "GET /static/4.png HTTP/1.1" 200 -
+2022-09-21 15:40:53,699: INFO:: 127.0.0.1 - - [21/Sep/2022 15:40:53] "GET /static/5.jpg HTTP/1.1" 200 -
+2022-09-21 15:40:53,699: INFO:: 127.0.0.1 - - [21/Sep/2022 15:40:53] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:29:05,058: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 16:29:05,058: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 16:29:05,063: INFO::  * Restarting with stat
+2022-09-21 16:29:05,743: WARNING::  * Debugger is active!
+2022-09-21 16:29:05,754: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:29:19,403: INFO:: 127.0.0.1 - - [21/Sep/2022 16:29:19] "GET / HTTP/1.1" 200 -
+2022-09-21 16:29:20,018: INFO:: 127.0.0.1 - - [21/Sep/2022 16:29:20] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:29:20,019: INFO:: 127.0.0.1 - - [21/Sep/2022 16:29:20] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:29:20,019: INFO:: 127.0.0.1 - - [21/Sep/2022 16:29:20] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 16:29:24,734: INFO:: 127.0.0.1 - - [21/Sep/2022 16:29:24] "POST /predict HTTP/1.1" 200 -
+2022-09-21 16:30:15,101: INFO::  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\app.py', reloading
+2022-09-21 16:30:15,183: INFO::  * Restarting with stat
+2022-09-21 16:30:20,266: WARNING::  * Debugger is active!
+2022-09-21 16:30:20,280: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:40:34,593: INFO::  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\app.py', reloading
+2022-09-21 16:40:34,697: INFO::  * Restarting with stat
+2022-09-21 16:40:35,768: WARNING::  * Debugger is active!
+2022-09-21 16:40:35,782: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:43:23,403: INFO::  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\app.py', reloading
+2022-09-21 16:43:23,465: INFO::  * Restarting with stat
+2022-09-21 16:43:28,220: WARNING::  * Debugger is active!
+2022-09-21 16:43:28,230: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:43:50,774: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 16:43:50,775: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 16:43:50,780: INFO::  * Restarting with stat
+2022-09-21 16:43:52,989: WARNING::  * Debugger is active!
+2022-09-21 16:43:53,008: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:44:03,068: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:03] "GET / HTTP/1.1" 200 -
+2022-09-21 16:44:03,573: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:03] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 16:44:03,574: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:03] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:44:03,575: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:03] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:44:46,277: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 16:44:46,277: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 16:44:46,282: INFO::  * Restarting with stat
+2022-09-21 16:44:48,595: WARNING::  * Debugger is active!
+2022-09-21 16:44:48,608: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:44:51,752: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:51] "GET / HTTP/1.1" 200 -
+2022-09-21 16:44:52,274: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:52] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:44:52,275: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:52] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:44:52,278: INFO:: 127.0.0.1 - - [21/Sep/2022 16:44:52] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 16:46:17,425: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 16:46:17,426: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 16:46:17,435: INFO::  * Restarting with stat
+2022-09-21 16:46:20,274: WARNING::  * Debugger is active!
+2022-09-21 16:46:20,288: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 16:46:21,321: INFO:: 127.0.0.1 - - [21/Sep/2022 16:46:21] "GET / HTTP/1.1" 200 -
+2022-09-21 16:46:23,138: INFO:: 127.0.0.1 - - [21/Sep/2022 16:46:23] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:46:23,138: INFO:: 127.0.0.1 - - [21/Sep/2022 16:46:23] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 16:46:23,139: INFO:: 127.0.0.1 - - [21/Sep/2022 16:46:23] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 17:01:39,555: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 17:01:39,556: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 17:01:39,561: INFO::  * Restarting with stat
+2022-09-21 17:01:41,676: WARNING::  * Debugger is active!
+2022-09-21 17:01:41,687: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 17:01:45,322: INFO:: 127.0.0.1 - - [21/Sep/2022 17:01:45] "GET / HTTP/1.1" 200 -
+2022-09-21 17:01:46,024: INFO:: 127.0.0.1 - - [21/Sep/2022 17:01:46] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 17:01:46,025: INFO:: 127.0.0.1 - - [21/Sep/2022 17:01:46] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:01:46,025: INFO:: 127.0.0.1 - - [21/Sep/2022 17:01:46] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:02:17,214: INFO::  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\app.py', reloading
+2022-09-21 17:02:28,298: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 17:02:28,300: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 17:02:28,317: INFO::  * Restarting with stat
+2022-09-21 17:02:31,024: WARNING::  * Debugger is active!
+2022-09-21 17:02:31,042: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 17:02:33,480: INFO:: 127.0.0.1 - - [21/Sep/2022 17:02:33] "GET / HTTP/1.1" 200 -
+2022-09-21 17:02:34,127: INFO:: 127.0.0.1 - - [21/Sep/2022 17:02:34] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:02:34,129: INFO:: 127.0.0.1 - - [21/Sep/2022 17:02:34] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 17:02:34,129: INFO:: 127.0.0.1 - - [21/Sep/2022 17:02:34] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:03:25,659: INFO::  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\app.py', reloading
+2022-09-21 17:04:25,118: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 17:04:25,119: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 17:04:25,136: INFO::  * Restarting with stat
+2022-09-21 17:04:37,367: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 17:04:37,368: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 17:04:37,374: INFO::  * Restarting with stat
+2022-09-21 17:04:39,730: WARNING::  * Debugger is active!
+2022-09-21 17:04:39,743: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 17:04:42,730: INFO:: 127.0.0.1 - - [21/Sep/2022 17:04:42] "GET / HTTP/1.1" 200 -
+2022-09-21 17:04:43,405: INFO:: 127.0.0.1 - - [21/Sep/2022 17:04:43] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:04:43,406: INFO:: 127.0.0.1 - - [21/Sep/2022 17:04:43] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:04:43,406: INFO:: 127.0.0.1 - - [21/Sep/2022 17:04:43] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 17:08:12,496: INFO:: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-09-21 17:08:12,497: INFO:: [33mPress CTRL+C to quit[0m
+2022-09-21 17:08:12,509: INFO::  * Restarting with stat
+2022-09-21 17:08:15,649: WARNING::  * Debugger is active!
+2022-09-21 17:08:15,682: INFO::  * Debugger PIN: 565-558-316
+2022-09-21 17:08:19,200: INFO:: 127.0.0.1 - - [21/Sep/2022 17:08:19] "GET / HTTP/1.1" 200 -
+2022-09-21 17:08:20,318: INFO:: 127.0.0.1 - - [21/Sep/2022 17:08:20] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+2022-09-21 17:08:20,319: INFO:: 127.0.0.1 - - [21/Sep/2022 17:08:20] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+2022-09-21 17:08:20,319: INFO:: 127.0.0.1 - - [21/Sep/2022 17:08:20] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
