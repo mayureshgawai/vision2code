@@ -1,0 +1,1 @@
+from detection.image_detector import ImageDetection

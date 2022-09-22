@@ -3,3 +3,9 @@ prediction:
 
 
 training:
+
+
+detection_config:
+  config_file: "COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"
+  num_classes: 14
+  score_thresh_test: 0.5

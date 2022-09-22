@@ -4,7 +4,7 @@ from flask import Flask, request
 from flask import send_file, abort, render_template
 import os
 from flask_cors import CORS, cross_origin
-from detector_function import ImagePredictor
+from detection import ImageDetection
 import logging
 import yaml
 import cv2
@@ -45,14 +45,14 @@ def detectObject():
         image = Image.open(img)
         image = np.array(image)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        img.save(os.path.join("temp_data", img.filename))
+        image = cv2.resize(image, (480, 480))
+        # img.save(os.path.join("temp_data", img.filename))
 
-        predictor = ImagePredictor(image)
+        predictor = ImageDetection(image, yamlFile)
         return "Uploaded Successfully"
 
     except Exception as e:
-        # logging.error("Error occured while training", e)
-        print(e)
+        logging.error("Error occured while training", e)
         return "Upload Failed"
 
 if(__name__) == '__main__':

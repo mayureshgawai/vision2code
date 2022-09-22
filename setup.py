@@ -19,7 +19,7 @@ def get_requirement_list(requirement_file_name=REQUIREMENT_FILE_NAME) -> list:
 setup(
     name='dt2_sk2co',
     version='1.1',
-    packages=['detector_function'],
+    packages=['detection'],
     url='',
     license='',
     author='mayuresh',
