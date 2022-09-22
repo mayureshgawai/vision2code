@@ -1,1 +1,0 @@
-from predictor_function.image_predictor import ImagePredictor
