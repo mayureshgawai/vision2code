@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="detection pipeline started">
-      <change afterPath="$PROJECT_DIR$/detection/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/prediction-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/prediction-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detector_function/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/detector_function/image_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/image_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_imges/6.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="detection pipeline started" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
