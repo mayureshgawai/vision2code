@@ -4,7 +4,7 @@ from flask import Flask, request
 from flask import send_file, abort, render_template
 import os
 from flask_cors import CORS, cross_origin
-from predictor_function import ImagePredictor
+from detector_function import ImagePredictor
 import logging
 import yaml
 import cv2
@@ -15,7 +15,7 @@ import numpy as np
 #
 #     def __int__(self):
 #         predictor = imagePredictor()
-# yamlFile = yaml.load(open("config.yaml"), Loader=yaml.FullLoader)
+yamlFile = yaml.load(open("config\config.yaml"), Loader=yaml.FullLoader)
 logging.basicConfig(filename='logs/main/main_logs.txt',
                     filemode='a', level=logging.INFO,
                     format='%(asctime)s: %(levelname)s:: %(message)s')
@@ -36,9 +36,9 @@ def index_page():
 def train():
     pass
 
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/detectObject', methods=['GET', 'POST'])
 @cross_origin()
-def predict():
+def detectObject():
     try:
         img = request.files['inputImg']
         print(img.filename, type(img))
@@ -47,7 +47,7 @@ def predict():
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         img.save(os.path.join("temp_data", img.filename))
 
-        predictor = ImagePredictor()
+        predictor = ImagePredictor(image)
         return "Uploaded Successfully"
 
     except Exception as e:
