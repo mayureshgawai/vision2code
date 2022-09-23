@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="detection pipeline started">
-      <change afterPath="$PROJECT_DIR$/app_configuration/configuration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_exception/AppException.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_exception/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_logger/logger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html_process/CreateHTML.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html_process/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html_process/elements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html_process/html_process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_processor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_processor/processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="HTML parser added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection/image_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/image_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v0_5_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v0_5_categories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v1_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v1_categories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/engine/defaults.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/engine/defaults.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/utils/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/utils/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron2/tools/lightning_train_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/tools/lightning_train_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/main/main_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_logger/main/main_logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html_process/CreateHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/CreateHTML.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html_process/html_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/html_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/app_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663829205776</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="HTML parser added">
+      <created>1663931322366</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663931322366</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="main_app updated" />
     <MESSAGE value="detection pipeline started" />
-    <option name="LAST_COMMIT_MESSAGE" value="detection pipeline started" />
+    <MESSAGE value="HTML parser added" />
+    <option name="LAST_COMMIT_MESSAGE" value="HTML parser added" />
   </component>
 </project>

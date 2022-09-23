@@ -20,6 +20,8 @@ class CreateHTML:
             return:
         '''
 
+        logging.info("Started generating HTML file ")
+
         try:
             self.add('<!DOCTYPE html>')
             with self.add.html(lang='en'):
@@ -62,10 +64,15 @@ class CreateHTML:
                                                 el.getElements(self.add, box[-1])
 
             html = str(self.add)
+
+            logging.info("Finished generating HTML File")
             # print(html)
+            logging.info("Saving HTML File...")
             dir = os.path.join(self.parsed_yaml['root_dir'], self.parsed_yaml['prediction']['out_dir'])
             file = os.path.join(dir, 'HTMLOuput.html')
             with open(file, 'a') as f:
                 f.write(html)
+
+            logging.info("HTML File Saved Successfully...")
         except Exception as e:
             logging.error("Error occurred while generating HTML")

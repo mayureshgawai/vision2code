@@ -1,4 +1,6 @@
 from app_logger.logger import logging
+from app_exception import AppException
+import sys
 
 class AppUtils:
 
@@ -16,15 +18,17 @@ class AppUtils:
             param: num (Y1)
             return: int
         '''
-
-        if (120 >= num > 0):
-            return 0
-        elif (240 >= num > 120):
-            return 1
-        elif (360 >= num > 240):
-            return 2
-        elif (480 >= num > 360):
-            return 3
+        try:
+            if (120 >= num > 0):
+                return 0
+            elif (240 >= num > 120):
+                return 1
+            elif (360 >= num > 240):
+                return 2
+            elif (480 >= num > 360):
+                return 3
+        except Exception as e:
+            raise AppException(e, sys)
 
     def getActualRowNumber(self, row_num1, row_num2, box):
         '''
@@ -33,19 +37,28 @@ class AppUtils:
             param:row_num1, row_num2, box
             return: int
         '''
+        try:
+            logging.info("Getting actual row number for row_num1:"+str(row_num1)+" row_num2"+str(row_num1))
+            if (row_num1 == row_num2):
+                return row_num1
+            if (row_num2 == row_num1 + 2):
+                return row_num2 - 1
 
-        if (row_num1 == row_num2):
-            return row_num1
-        if (row_num2 == row_num1 + 2):
-            return row_num2 - 1
+            distance1 = abs(120 * (row_num1 + 1) - box[1])
+            distance2 = abs(120 * (row_num2) - box[3])
 
-        distance1 = abs(120 * (row_num1 + 1) - box[1])
-        distance2 = abs(120 * (row_num2) - box[3])
+            actualRow = 0
+            if (distance1 > distance2):
+                actualRow = row_num1
+            elif (distance2 > distance1):
+                actualRow = row_num2
 
-        if (distance1 > distance2):
-            return row_num1
-        elif (distance2 > distance1):
-            return row_num2
+            logging.info("Calculated row number for row_num1:" + str(row_num1) + " row_num2" + str(row_num1) + " is "
+                         +str(actualRow))
+
+            return actualRow
+        except Exception as e:
+            raise AppException(e, sys)
 
     def attachLabels(self, rows, labels):
 
@@ -66,19 +79,23 @@ class AppUtils:
         '''
 
         # selection sort
+        try:
+            for column in rows:
 
-        for column in rows:
+                for idx in range(len(column) - 1):
+                    min = idx
+                    for new in range(idx, len(column)):
+                        if (column[new][0][0] < column[min][0][0]):
+                            min = new
 
-            for idx in range(len(column) - 1):
-                min = idx
-                for new in range(idx, len(column)):
-                    if (column[new][0][0] < column[min][0][0]):
-                        min = new
+                    temp = column[idx]
+                    column[idx] = column[min]
+                    column[min] = temp
 
-                temp = column[idx]
-                column[idx] = column[min]
-                column[min] = temp
+            logging.info("Columns sorted...")
+            logging.info(rows)
 
-        return rows
-
+            return rows
+        except Exception as e:
+            raise AppException(e, sys)
 

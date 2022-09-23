@@ -13,7 +13,16 @@ class CreateAlignment:
 
 
     def getRowsAndColumns(self, boxes, labels, rows, image):
+
+        '''
+            Description: To get actual intuition about where the element is resides in sketch, we have to place it into
+            specific row and column in the grid structure.
+            param: boxes, labels, rows, image
+            return:
+        '''
+
         try:
+            logging.info("Started calculating rows and column for all the Bboxes of image")
             for box in boxes:
                 box = np.array(box)
 
@@ -52,6 +61,7 @@ class CreateAlignment:
                                 break
 
             rows_new = self.utils.sortColumns(rows)
+            logging.info("Calculated rows and columns all the Bboxes")
 
             self.chtml.generate(rows_new)
 
