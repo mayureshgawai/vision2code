@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="detection pipeline started" />
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="detection pipeline started">
+      <change afterPath="$PROJECT_DIR$/app_configuration/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_exception/AppException.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_exception/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_logger/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html_process/CreateHTML.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html_process/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html_process/elements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html_process/html_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_processor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_processor/processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection/image_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/image_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v0_5_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v0_5_categories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v1_categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/data/datasets/lvis_v1_categories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/engine/defaults.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/engine/defaults.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron2/detectron2/utils/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/detectron2/utils/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron2/tools/lightning_train_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron2/tools/lightning_train_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/main/main_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_logger/main/main_logs.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Setup Script" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>

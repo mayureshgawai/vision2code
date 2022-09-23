@@ -45,10 +45,10 @@ def setup_logger(
     Args:
         output (str): a file name or a directory to save log. If None, will not save log file.
             If ends with ".txt" or ".log", assumed to be a file name.
-            Otherwise, logs will be saved to `output/log.txt`.
+            Otherwise, app_logger will be saved to `output/log.txt`.
         name (str): the root module name of this logger
-        abbrev_name (str): an abbreviation of the module, to avoid long names in logs.
-            Set to "" to not log the root module in logs.
+        abbrev_name (str): an abbreviation of the module, to avoid long names in app_logger.
+            Set to "" to not log the root module in app_logger.
             By default, will abbreviate "detectron2" to "d2" and leave other
             modules unchanged.
 
@@ -147,7 +147,7 @@ def log_first_n(lvl, msg, n=1, *, name=None, key="caller"):
         n (int):
         name (str): name of the logger to use. Will use the caller's module by default.
         key (str or tuple[str]): the string(s) can be one of "caller" or
-            "message", which defines how to identify duplicated logs.
+            "message", which defines how to identify duplicated app_logger.
             For example, if called with `n=1, key="caller"`, this function
             will only log the first call from the same caller, regardless of
             the message content.

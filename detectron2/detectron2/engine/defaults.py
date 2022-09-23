@@ -384,7 +384,7 @@ class DefaultTrainer(TrainerBase):
 
         self.scheduler = self.build_lr_scheduler(cfg, optimizer)
         self.checkpointer = DetectionCheckpointer(
-            # Assume you want to save checkpoints together with logs/statistics
+            # Assume you want to save checkpoints together with app_logger/statistics
             model,
             cfg.OUTPUT_DIR,
             trainer=weakref.proxy(self),

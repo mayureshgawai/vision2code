@@ -1,6 +1,8 @@
+root_dir: 'C:\Users\ASUS\OneNeuron\practice\dt2_sk2co'
+
 prediction:
   temp_data: './temp_data'
-
+  out_dir: "HTML output"
 
 training:
 

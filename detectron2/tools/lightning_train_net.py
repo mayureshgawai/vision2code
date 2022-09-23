@@ -61,7 +61,7 @@ class TrainingModule(LightningModule):
     def setup(self, stage: str):
         if self.cfg.MODEL.WEIGHTS:
             self.checkpointer = DetectionCheckpointer(
-                # Assume you want to save checkpoints together with logs/statistics
+                # Assume you want to save checkpoints together with app_logger/statistics
                 self.model,
                 self.cfg.OUTPUT_DIR,
             )
