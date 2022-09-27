@@ -3,7 +3,6 @@ import cv2
 import detectron2
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
-import matplotlib.pyplot as plt
 import os, json, random
 from detectron2 import model_zoo
 from detectron2.utils.visualizer import ColorMode
@@ -26,7 +25,10 @@ class ImageDetection :
             cfg.merge_from_file(model_zoo.get_config_file(self.yaml['detection_config']['config_file']))
             cfg.MODEL.ROI_HEADS.NUM_CLASSES = self.yaml['detection_config']['num_classes']
             cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = self.yaml['detection_config']['score_thresh_test']
-            cfg.MODEL.WEIGHTS = os.path.join("output2", "model_final.pth")
+            cfg.MODEL.WEIGHTS = os.path.join(self.yaml['detection_config']['model_folder'],
+                                             self.yaml['detection_config']['model_name'])
+
+            # predictions for objects
             predictor = DefaultPredictor(cfg)
 
             output = predictor(self.image)

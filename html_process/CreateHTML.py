@@ -49,14 +49,14 @@ class CreateHTML:
                     with self.add.div(klass="container body-content6"):
 
                         for row in rows:
-                            with self.add.div(klass="row justify-content-start", style="pself.adding-top:10px"):
+                            with self.add.div(klass="row justify-content-start", style="padding-top:10px"):
                                 for col in row:
                                     with self.add.div(klass="col d-flex flex-column align-items-start",
                                                  style="pself.adding-top:10px;"):
                                         for box in col:
                                             if (box[-1] == 1 or box[-1] == 3 or box[-1] == 4 or box[-1] == 6 or
                                                     box[-1] == 7 or box[-1] == 10):
-                                                # text = getOCRText(img)
+                                                text = getOCRText(img)
                                                 el.getElements(self.add, box[-1])
 
                                                 # str(self.add)

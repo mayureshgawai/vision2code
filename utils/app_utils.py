@@ -5,11 +5,7 @@ import sys
 class AppUtils:
 
     """
-    Organization: iNeuron Intelligence Private Limited
-    AppException is customized exception class designed to capture refined details about exception
-    such as python script file line number along with error message
-    With custom exception one can easily spot source of error and provide quick fix.
-
+    AppUtils is a class contains functions which can be used by the workflow for the basic utility operations.
     """
 
     def getRowNumber(self, num):
@@ -27,6 +23,7 @@ class AppUtils:
                 return 2
             elif (480 >= num > 360):
                 return 3
+
         except Exception as e:
             raise AppException(e, sys)
 
@@ -76,6 +73,8 @@ class AppUtils:
 
         '''
             Sorting of elements placed in columns to perfectly align them on the page
+            param: rows
+            return:
         '''
 
         # selection sort
