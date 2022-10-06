@@ -52,7 +52,8 @@ class ImageProcessor:
             for b in box:
                 boxes_text.append(np.array(b.to("cpu")))
 
-            self.textprocess.checkForTextBboxesWithHTML(boxes_text, labels_text, boxes)
+            boxes_text = self.textprocess.checkForTextBboxesWithHTML(boxes_text,  boxes)
+            boxes_text = self.textprocess.checkForTextBBoxes(boxes_text)
 
             logging.info("Text Detection and conversion stage completed")
 

@@ -10,7 +10,7 @@ class TextAlignment:
         self.yaml = yamlFile
         self.util = AppUtils()
 
-    def checkForTextBboxesWithHTML(self, boxes, labels, htmlBoxes):
+    def checkForTextBboxesWithHTML(self, boxes, htmlBoxes):
 
         '''
             Purpose of this method is to check the overlapping of the text detection bboxes with html elements.
@@ -25,7 +25,7 @@ class TextAlignment:
                 7. Other at exact bottom
                 8. Other at exact top
                 9. In the middle
-            param: boxes, labels
+            param: boxes, labels, htmlboxes
             return: list
         '''
 
@@ -121,9 +121,26 @@ class TextAlignment:
 
             logging.info("Checking for text bboxes with HTML bboxes...")
 
+            return boxes
+
         except Exception as e:
             logging.error("Error occurred while checking for text bboxes. ", e)
 
 
     def checkForTextBBoxes(self):
-        pass
+        '''
+            Purpose of this method is to check the overlapping of the text detection bboxes with html elements.
+            If the overlapping is above specified limit then form the new bbox using their coordinates.
+            Conditions we have to check:
+                1. Other at bottom right
+                2. Other at top right
+                3. Other at top left
+                4. Other at bottom left
+                5. Other at exact right
+                6. Other at exact left
+                7. Other at exact bottom
+                8. Other at exact top
+                9. In the middle
+            param: boxes, labels, htmlboxes
+            return: list
+        '''
