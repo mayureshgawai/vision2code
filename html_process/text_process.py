@@ -3,6 +3,8 @@ import sys
 from app_logger.logger import logging
 from app_exception import AppException
 from utils import AppUtils
+import numpy as np
+
 class TextAlignment:
     def __init__(self, yamlFile):
         self.yaml = yamlFile
@@ -29,7 +31,7 @@ class TextAlignment:
 
 
         try:
-            logging.info("Checking for text bboxes...")
+            logging.info("Checking for text bboxes with HTML bboxes...")
 
             for t in boxes:
                 for h in htmlBoxes:
@@ -38,26 +40,50 @@ class TextAlignment:
                     if(t[1] < h[3] and t[1] > h[1] and t[0] < h[2] and t[2] > h[2] and t[2] > h[2]):
                         points = [t[3], h[1], h[3], t[1], t[2], h[0], h[2], t[0]]
                         verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                        if(verticalDistance >= 75):
+                            if(horizontalDistance >= 70):
+                                # newOne = [h[0], h[1], t[2], t[3]]
+                                # newBoxes.append(np.array(newOne, np.uint8))
+                                boxes.remove(t)
 
                     # check for top right
                     elif(t[1] < h[1] and (h[3] > t[3] > h[1]) and (h[0] < t[0] < h[2]) and t[3] > h[3]):
                         points = [h[3], t[1], t[3], h[1], t[2], h[0], h[2], t[0]]
                         verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                        if(verticalDistance >= 75):
+                            if(horizontalDistance >= 70):
+                                # newOne = [h[0], t[1], t[2], h[3]]
+                                # newBoxes.append(np.array(newOne, np.uint8))
+                                boxes.remove(t)
 
                     # check for top left
                     elif(t[1] < h[1] and (h[3] > t[3] > h[1]) and (h[0] < t[2] < h[2]) and t[0] < h[0]):
                         points = [h[3], t[1], t[3], h[1], h[2], t[0], t[2], h[0]]
                         verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                        if (verticalDistance >= 75):
+                            if (horizontalDistance >= 70):
+                                # newOne = [t[0], t[1], h[2], h[3]]
+                                # newBoxes.append(np.array(newOne, np.uint8))
+                                boxes.remove(t)
 
                     # check for bottom left
                     elif((h[0] < t[1] < h[3]) and t[3] > h[3] and t[0] < h[0] and (h[0] < t[2] < h[2])):
                         points = [t[3], h[1], h[3], t[1], h[2], t[0], t[2], h[0]]
                         verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                        if (verticalDistance >= 75):
+                            if (horizontalDistance >= 70):
+                                # newOne = [t[0], h[1], t[2], h[3]]
+                                # newBoxes.append(np.array(newOne, np.uint8))
+                                boxes.remove(t)
 
                     # check for exact right
                     elif((h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3]) and (h[0] < t[0] < h[2]) and t[2] > h[2]):
                         points = [t[2], h[0], h[2], t[0]]
                         horizontalDistance = self.util.getDistance(points, True)
+                        if(horizontalDistance >= 70):
+                            # newOne = [h[0], h[1], t[2], h[3]]
+                            # newBoxes.append(np.array(newOne, np.uint8))
+                            boxes.remove(t)
 
                     # check for exact left
                     elif(t[0] < h[0] and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3])
@@ -65,21 +91,39 @@ class TextAlignment:
 
                         points = [h[2], t[0], t[2], h[0]]
                         horizontalDistance = self.util.getDistance(points, True)
+                        if (horizontalDistance >= 70):
+                            # newOne = [t[0], h[1], h[2], h[3]]
+                            # newBoxes.append(np.array(newOne, np.uint8))
+                            boxes.remove(t)
 
                     # check for exact bottom
                     elif((h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and h[3] < t[3]):
                         points = [t[3], h[1], h[3], t[1]]
                         verticalDistance = self.util.getDistance(points, True)
+                        if (verticalDistance >= 70):
+                            # newOne = [h[0], h[1], h[2], t[3]]
+                            # newBoxes.append(np.array(newOne, np.uint8))
+                            boxes.remove(t)
 
                     # check for exact top
                     elif(t[1] < h[1] and (h[1] < t[3] < h[3]) and (h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2])):
                         points = [h[3], t[1], t[3], h[1]]
                         verticalDistance = self.util.getDistance(points, True)
+                        if (verticalDistance >= 70):
+                            # newOne = [h[0], t[1], h[2], h[3]]
+                            # newBoxes.append(np.array(newOne, np.uint8))
+                            boxes.remove(t)
+
 
                     # check in the middle
                     elif((h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3])):
-                        pass
+                        boxes.remove(t)
 
+            logging.info("Checking for text bboxes with HTML bboxes...")
 
         except Exception as e:
             logging.error("Error occurred while checking for text bboxes. ", e)
+
+
+    def checkForTextBBoxes(self):
+        pass

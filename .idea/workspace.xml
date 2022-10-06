@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="loggers updated">
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detcetion alignment set">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection/text_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/text_detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html_process/CreateHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/CreateHTML.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html_process/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html_process/text_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/text_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processor/processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processor/processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/app_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663932501111</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="text detcetion alignment set">
+      <created>1665053992778</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665053992778</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +128,7 @@
     <MESSAGE value="detection pipeline started" />
     <MESSAGE value="HTML parser added" />
     <MESSAGE value="loggers updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="loggers updated" />
+    <MESSAGE value="text detcetion alignment set" />
+    <option name="LAST_COMMIT_MESSAGE" value="text detcetion alignment set" />
   </component>
 </project>
