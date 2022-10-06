@@ -13,10 +13,7 @@ import numpy as np
 from image_processor import ImageProcessor
 
 
-# class vision:
-#
-#     def __int__(self):
-#         predictor = imagePredictor()
+
 yamlFile = yaml.load(open("config\config.yaml"), Loader=yaml.FullLoader)
 logging.basicConfig(filename='app_logger/main/main_logs.txt',
                     filemode='a', level=logging.INFO,
