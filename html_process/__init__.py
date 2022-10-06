@@ -1,2 +1,3 @@
 from html_process.html_process import CreateAlignment
 from html_process.CreateHTML import CreateHTML
+from html_process.text_process import TextAlignment

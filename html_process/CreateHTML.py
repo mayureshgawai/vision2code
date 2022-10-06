@@ -5,6 +5,12 @@ from app_exception import AppException
 from app_logger.logger import logging
 import os
 import yaml
+import pytesseract.pytesseract as pt
+
+try:
+    from PIL import Image
+except ImportError:
+    import Image
 
 class CreateHTML:
     def __init__(self, yamlFile):
@@ -12,7 +18,7 @@ class CreateHTML:
         self.parsed_yaml = yamlFile
 
 
-    def generate(self, rows):
+    def generate(self, rows, img):
 
         '''
             This is the actual class responsible to generate HTML code using "Airium" python library
@@ -56,7 +62,7 @@ class CreateHTML:
                                         for box in col:
                                             if (box[-1] == 1 or box[-1] == 3 or box[-1] == 4 or box[-1] == 6 or
                                                     box[-1] == 7 or box[-1] == 10):
-                                                text = getOCRText(img)
+                                                text = self.getOCRText(box, img)
                                                 el.getElements(self.add, box[-1])
 
                                                 # str(self.add)
@@ -69,10 +75,20 @@ class CreateHTML:
             # print(html)
             logging.info("Saving HTML File...")
             dir = os.path.join(self.parsed_yaml['root_dir'], self.parsed_yaml['prediction']['out_dir'])
-            file = os.path.join(dir, 'HTMLOuput.html')
+            file = os.path.join(dir, 'HTMLOutput.html')
             with open(file, 'a') as f:
                 f.write(html)
-
             logging.info("HTML File Saved Successfully...")
+
         except Exception as e:
             logging.error("Error occurred while generating HTML")
+
+
+    def getOCRText(self, box, img):
+
+        main_img = img[box[1]:box[3], box[0]:box[2]]
+
+        pt.tesseract_cmd = "C:\\Users\\ASUS\\anaconda3\\envs\\dt_2_new\\Library\\bin\\tesseract.exe"
+
+        text_from_image = pt.image_to_string(main_img, config='psm 6')
+        print(text_from_image)

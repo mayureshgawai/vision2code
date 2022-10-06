@@ -7,7 +7,8 @@ import os, json, random
 from detectron2 import model_zoo
 from detectron2.utils.visualizer import ColorMode
 import numpy as np
-
+from app_exception import AppException
+import sys
 
 class ImageDetection :
 
@@ -39,3 +40,4 @@ class ImageDetection :
 
         except Exception as e:
             logging.error("Error in detection method ", e)
+            raise AppException(e, sys)

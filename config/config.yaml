@@ -13,3 +13,12 @@ detection_config:
   score_thresh_test: 0.5
   model_name: 'model_final.pth'
   model_folder: 'output2'
+
+text_detection:
+  config_file: "COCO-Detection/faster_rcnn_R_101_FPN_3x.yaml"
+  num_classes: 1
+  score_thresh_test: 0.5
+  base_lr : 0.00025
+#  batch_size
+  model_name: 'model_final.pth'
+  model_folder: 'text_detection_20k_model'

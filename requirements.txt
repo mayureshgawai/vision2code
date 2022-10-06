@@ -1,3 +1,10 @@
+# (VERY IMPORTANT) Please run below 2 commands in your terminal before/after running "pip install -r requirement.txt" to
+# install tesseract in your system.
+
+# conda install -c conda-forge tesseract
+
+
+
 absl-py==1.2.0
 airium==0.2.3
 alembic==1.8.1
@@ -29,7 +36,10 @@ cycler==0.11.0
 debugpy==1.5.1
 decorator==5.1.1
 defusedxml==0.7.1
+
+# assuming that yuo have cloned the repo
 #detectron2              0.6                c:\users\asus\anaconda3\envs\dt_2_new\lib\site-packages\detectron2-0.6-py3.9-win-amd64.egg
+
 entrypoints==0.4
 executing==0.8.3
 fairscale==0.4.8

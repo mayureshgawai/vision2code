@@ -24,7 +24,7 @@ class CreateAlignment:
         try:
             logging.info("Started calculating rows and column for all the Bboxes of image")
             for box in boxes:
-                box = np.array(box)
+                box = np.array(box, np.uint8)
 
                 row_num1 = self.utils.getRowNumber(box[1])  # get for y1
                 row_num2 = self.utils.getRowNumber(box[3])  # get for y2
@@ -63,7 +63,8 @@ class CreateAlignment:
             rows_new = self.utils.sortColumns(rows)
             logging.info("Calculated rows and columns all the Bboxes")
 
-            self.chtml.generate(rows_new)
+            return rows_new
+            # self.chtml.generate(rows_new)
 
         except Exception as e:
             logging.error("Error occured while getting rows and column...", e)
