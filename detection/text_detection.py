@@ -34,5 +34,7 @@ class TextDetection:
             boxes = output["instances"].pred_boxes
             labels = np.array(output["instances"].pred_classes.to("cpu"))+1
 
+            return boxes, labels
+
         except Exception as e:
             raise AppException(e, sys)

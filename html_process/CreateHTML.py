@@ -56,7 +56,7 @@ class CreateHTML:
                                         for box in col:
                                             if (box[-1] == 1 or box[-1] == 3 or box[-1] == 4 or box[-1] == 6 or
                                                     box[-1] == 7 or box[-1] == 10):
-                                                text = getOCRText(img)
+                                                # text = getOCRText(img)
                                                 el.getElements(self.add, box[-1])
 
                                                 # str(self.add)
@@ -69,7 +69,7 @@ class CreateHTML:
             # print(html)
             logging.info("Saving HTML File...")
             dir = os.path.join(self.parsed_yaml['root_dir'], self.parsed_yaml['prediction']['out_dir'])
-            file = os.path.join(dir, 'HTMLOuput.html')
+            file = os.path.join(dir, 'HTMLOutput.html')
             with open(file, 'a') as f:
                 f.write(html)
 

@@ -8,9 +8,36 @@ class AppUtils:
     AppUtils is a class contains functions which can be used by the workflow for the basic utility operations.
     """
 
+    def getDistance(self, points, exactSide):
+        '''
+            This function is responsible to find distance between two bboxes (only called when they are overlapping)
+            both vertically and horizontally.
+            param: 4 points
+            return:
+        '''
+
+        if(exactSide):
+            total = points[0] - points[1]
+            distance = points[2] - points[3]
+            exactDistance = (distance / total) * 100
+
+            return exactDistance
+
+        vTotal = points[0] - points[1]
+        vDistance = points[2] - points[3]
+        verticalDistance = (vDistance / vTotal) * 100
+
+        hTotal = points[4] - points[5]
+        hDistance = points[6] - points[7]
+        horizontalDistance = (hDistance / hTotal) * 100
+
+        return verticalDistance, horizontalDistance
+
+
+
     def getRowNumber(self, num):
         '''
-            It is important to know that in which part of the image the element resides. This function calculates row number
+            It is important to know that in which part of the image the element resides. This function calculates row number.
             param: num (Y1)
             return: int
         '''
