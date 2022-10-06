@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="loggers updated">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/code.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection/image_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/image_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html_process/CreateHTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/CreateHTML.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/app_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
