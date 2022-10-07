@@ -1,3 +1,6 @@
 output/model_final.pth
 output2/model_final.pth
 .idea/workspace.xml
+text_detection_model
+text_detection_model/model_final.pth
+detection/data

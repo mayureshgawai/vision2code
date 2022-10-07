@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detection changes">
+      <change afterPath="$PROJECT_DIR$/config/Base-RCNN-FPN.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/faster_rcnn_R_101_FPN_3x.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection/text_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/text_detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_processor/processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processor/processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,8 +192,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="3" />
+          <line>48</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/detection/text_detection.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

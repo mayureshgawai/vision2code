@@ -33,24 +33,24 @@ class ImageProcessor:
         try:
             # To get the all detections and the labels to pass in the HTML parsing methods.
             # Configurations for the detections are there in config file.
-            box, labels = self.detection.detection()
+            box_text, labels = self.detection.detection()
 
-            box = np.array(box.to("cpu"))
+            box_text = np.array(box_text.to("cpu"))
 
             # Before processing on boxes, we have to convert them all from tensors into numpy arrays.
             boxes = []
-            for b in box:
+            for b in box_text:
                 boxes.append(np.array(b.to("cpu"), np.uint8))
 
             # Now we can move to the phase of HTML creation.
             logging.info("Text Detection and conversion stage begins here")
 
             box_text, labels_text = self.textDetect.detection()
-            box = np.array(box.to("cpu"))
+            box_text = np.array(box_text.to("cpu"))
 
             boxes_text = []
-            for b in box:
-                boxes_text.append(np.array(b.to("cpu")))
+            for b in box_text:
+                boxes_text.append(np.array(b.to("cpu"), np.uint8))
 
             boxes_text = self.textprocess.checkForTextBboxesWithHTML(boxes_text,  boxes)
             boxes_text = self.textprocess.checkForTextBBoxes(boxes_text)

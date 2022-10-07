@@ -1,0 +1,3 @@
+[2022-10-07 17:16:51,538] werkzeug - WARNING -  * Debugger is active!
+[2022-10-07 17:16:51,551] werkzeug - INFO -  * Debugger PIN: 565-558-316
+[2022-10-07 17:17:26,972] werkzeug - INFO -  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\detection\\text_detection.py', reloading
