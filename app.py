@@ -1,8 +1,7 @@
 import argparse
-from http.client import HTTPException, HTTPResponse
 from flask import Flask, request
 from flask import send_file, abort, render_template
-import os
+
 from flask_cors import CORS, cross_origin
 from detection import ImageDetection
 import logging
@@ -51,11 +50,12 @@ def detectObject():
             # img.save(os.path.join("temp_data", img.filename))
 
             processor = ImageProcessor(yamlFile, image)
+            processor.process()
 
             return "Uploaded Successfully"
 
     except Exception as e:
-        logging.error("Error occured while training", e)
+        logging.error("Error occured while detection", e)
         return "Upload Failed"
 
 @app.route('/download', methods=['GET', 'POST'])

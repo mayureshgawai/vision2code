@@ -1,3 +1,4 @@
-from html_process.html_process import CreateAlignment
-from html_process.CreateHTML import CreateHTML
+from html_process.htmlAlignment import CreateAlignment
+from html_process.createPage import CreateHTML
 from html_process.text_process import TextAlignment
+from html_process.elements import getElements

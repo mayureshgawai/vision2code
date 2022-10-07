@@ -1,0 +1,4 @@
+[2022-10-07 13:21:08,560] werkzeug - WARNING -  * Debugger is active!
+[2022-10-07 13:21:08,573] werkzeug - INFO -  * Debugger PIN: 565-558-316
+[2022-10-07 13:21:12,866] PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+[2022-10-07 13:21:12,866] PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 8192

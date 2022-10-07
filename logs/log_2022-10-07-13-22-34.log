@@ -1,0 +1,9 @@
+[2022-10-07 13:22:35,040] werkzeug - WARNING -  * Debugger is active!
+[2022-10-07 13:22:35,054] werkzeug - INFO -  * Debugger PIN: 565-558-316
+[2022-10-07 13:22:50,984] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 13:22:50] "GET / HTTP/1.1" 200 -
+[2022-10-07 13:22:51,310] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 13:22:51] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+[2022-10-07 13:22:51,311] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 13:22:51] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+[2022-10-07 13:22:51,311] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 13:22:51] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+[2022-10-07 13:22:58,558] PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+[2022-10-07 13:22:58,558] PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 8192
+[2022-10-07 13:23:46,974] werkzeug - INFO -  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\html_process\\htmlAlignment.py', reloading

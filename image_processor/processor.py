@@ -40,7 +40,7 @@ class ImageProcessor:
             # Before processing on boxes, we have to convert them all from tensors into numpy arrays.
             boxes = []
             for b in box:
-                boxes.append(np.array(b.to("cpu")))
+                boxes.append(np.array(b.to("cpu"), np.uint8))
 
             # Now we can move to the phase of HTML creation.
             logging.info("Text Detection and conversion stage begins here")

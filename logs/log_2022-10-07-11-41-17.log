@@ -1,0 +1,10 @@
+[2022-10-07 11:41:17,145] werkzeug - WARNING -  * Debugger is active!
+[2022-10-07 11:41:17,154] werkzeug - INFO -  * Debugger PIN: 565-558-316
+[2022-10-07 11:43:47,211] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 11:43:47] "GET / HTTP/1.1" 200 -
+[2022-10-07 11:43:47,503] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 11:43:47] "[36mGET /static/4.png HTTP/1.1[0m" 304 -
+[2022-10-07 11:43:47,503] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 11:43:47] "[36mGET /static/3.jpg HTTP/1.1[0m" 304 -
+[2022-10-07 11:43:47,504] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 11:43:47] "[36mGET /static/5.jpg HTTP/1.1[0m" 304 -
+[2022-10-07 11:43:47,522] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 11:43:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2022-10-07 11:44:07,137] PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+[2022-10-07 11:44:07,137] PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 8192
+[2022-10-07 11:44:09,539] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 11:44:09] "POST /detectObject HTTP/1.1" 200 -

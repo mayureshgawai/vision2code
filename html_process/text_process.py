@@ -14,7 +14,7 @@ class TextAlignment:
 
         '''
             Purpose of this method is to check the overlapping of the text detection bboxes with html elements.
-            If the overlapping is above specified limit then form the new bbox using their coordinates.
+            If the overlapping is above of specified limit then we simply delete that text detection box.
             Conditions we have to check:
                 1. Other at bottom right
                 2. Other at top right
@@ -129,8 +129,8 @@ class TextAlignment:
 
     def checkForTextBBoxes(self):
         '''
-            Purpose of this method is to check the overlapping of the text detection bboxes with html elements.
-            If the overlapping is above specified limit then form the new bbox using their coordinates.
+            Purpose of this method is to check the overlapping of the text detection bboxes with other text bboxes.
+            If the overlapping is above of specified limit then form the new bbox using their coordinates.
             Conditions we have to check:
                 1. Other at bottom right
                 2. Other at top right
