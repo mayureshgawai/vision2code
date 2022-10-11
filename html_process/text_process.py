@@ -163,7 +163,6 @@ class TextAlignment:
             for box in range(0, len(boxes)):
                 h = 0
                 for nbox in range(0, len(boxes)):
-
                     if (boxes[t][0] == boxes[h][0] and boxes[t][3] == boxes[h][3]):
                         h += 1
                         continue
