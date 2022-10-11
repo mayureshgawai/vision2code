@@ -4,3 +4,4 @@ output2/model_final.pth
 text_detection_model
 text_detection_model/model_final.pth
 detection/data
+

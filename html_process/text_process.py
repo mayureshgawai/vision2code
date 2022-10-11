@@ -31,6 +31,7 @@ class TextAlignment:
 
 
         try:
+            boxesToRemove = []
             logging.info("Checking for text bboxes with HTML bboxes...")
 
             for t in boxes:
@@ -44,7 +45,8 @@ class TextAlignment:
                             if(horizontalDistance >= 70):
                                 # newOne = [h[0], h[1], t[2], t[3]]
                                 # newBoxes.append(np.array(newOne, np.uint8))
-                                boxes.remove(t)
+                                boxesToRemove.append(t)
+                                break
 
                     # check for top right
                     elif(t[1] < h[1] and (h[3] > t[3] > h[1]) and (h[0] < t[0] < h[2]) and t[3] > h[3]):
@@ -54,7 +56,8 @@ class TextAlignment:
                             if(horizontalDistance >= 70):
                                 # newOne = [h[0], t[1], t[2], h[3]]
                                 # newBoxes.append(np.array(newOne, np.uint8))
-                                boxes.remove(t)
+                                boxesToRemove.append(t)
+                                break
 
                     # check for top left
                     elif(t[1] < h[1] and (h[3] > t[3] > h[1]) and (h[0] < t[2] < h[2]) and t[0] < h[0]):
@@ -64,7 +67,8 @@ class TextAlignment:
                             if (horizontalDistance >= 70):
                                 # newOne = [t[0], t[1], h[2], h[3]]
                                 # newBoxes.append(np.array(newOne, np.uint8))
-                                boxes.remove(t)
+                                boxesToRemove.append(t)
+                                break
 
                     # check for bottom left
                     elif((h[0] < t[1] < h[3]) and t[3] > h[3] and t[0] < h[0] and (h[0] < t[2] < h[2])):
@@ -74,7 +78,8 @@ class TextAlignment:
                             if (horizontalDistance >= 70):
                                 # newOne = [t[0], h[1], t[2], h[3]]
                                 # newBoxes.append(np.array(newOne, np.uint8))
-                                boxes.remove(t)
+                                boxesToRemove.append(t)
+                                break
 
                     # check for exact right
                     elif((h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3]) and (h[0] < t[0] < h[2]) and t[2] > h[2]):
@@ -83,7 +88,8 @@ class TextAlignment:
                         if(horizontalDistance >= 70):
                             # newOne = [h[0], h[1], t[2], h[3]]
                             # newBoxes.append(np.array(newOne, np.uint8))
-                            boxes.remove(t)
+                            boxesToRemove.append(t)
+                            break
 
                     # check for exact left
                     elif(t[0] < h[0] and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3])
@@ -94,7 +100,8 @@ class TextAlignment:
                         if (horizontalDistance >= 70):
                             # newOne = [t[0], h[1], h[2], h[3]]
                             # newBoxes.append(np.array(newOne, np.uint8))
-                            boxes.remove(t)
+                            boxesToRemove.append(t)
+                            break
 
                     # check for exact bottom
                     elif((h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and h[3] < t[3]):
@@ -103,7 +110,8 @@ class TextAlignment:
                         if (verticalDistance >= 70):
                             # newOne = [h[0], h[1], h[2], t[3]]
                             # newBoxes.append(np.array(newOne, np.uint8))
-                            boxes.remove(t)
+                            boxesToRemove.append(t)
+                            break
 
                     # check for exact top
                     elif(t[1] < h[1] and (h[1] < t[3] < h[3]) and (h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2])):
@@ -112,22 +120,23 @@ class TextAlignment:
                         if (verticalDistance >= 70):
                             # newOne = [h[0], t[1], h[2], h[3]]
                             # newBoxes.append(np.array(newOne, np.uint8))
-                            boxes.remove(t)
-
+                            boxesToRemove.append(t)
+                            break
 
                     # check in the middle
                     elif((h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3])):
-                        boxes.remove(t)
+                        boxesToRemove.append(t)
+                        break
 
             logging.info("Checking for text bboxes with HTML bboxes...")
 
-            return boxes
+            return boxesToRemove
 
         except Exception as e:
             logging.error("Error occurred while checking for text bboxes. ", e)
 
 
-    def checkForTextBBoxes(self):
+    def checkForTextBBoxes(self, boxes):
         '''
             Purpose of this method is to check the overlapping of the text detection bboxes with other text bboxes.
             If the overlapping is above of specified limit then form the new bbox using their coordinates.
@@ -144,3 +153,312 @@ class TextAlignment:
             param: boxes, labels, htmlboxes
             return: list
         '''
+
+        try:
+            logging.info("Checking for text bboxes with HTML bboxes...")
+
+            t = 0
+            h = 0
+
+            for box in range(0, len(boxes)):
+                h = 0
+                for nbox in range(0, len(boxes)):
+
+                    if (boxes[t][0] == boxes[h][0] and boxes[t][3] == boxes[h][3]):
+                        h += 1
+                        continue
+
+                    # check for bottom right
+                    if (boxes[t][1] < boxes[h][3] and boxes[t][1] > boxes[h][1] and boxes[t][0] < boxes[h][2] and
+                        boxes[t][2] > boxes[h][2] and boxes[t][2] > boxes[h][2]):
+                            points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[h][0],
+                                      boxes[h][2], boxes[t][0]]
+                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                            if (verticalDistance >= 68):
+                                if (horizontalDistance >= 3):
+                                    newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[t][3]]
+                                    boxes.append(np.array(newOne, np.uint16))
+                                    if (h > t):
+                                        boxes.pop(t)
+                                        boxes.pop(h - 1)
+                                    elif(h < t):
+                                        boxes.pop(h)
+                                        boxes.pop(t - 1)
+                                    h -= 1
+                                    t -= 1
+                                    break
+
+                    # check for top right
+                    if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
+                          (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][3] < boxes[h][3]):
+                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[h][0],
+                                      boxes[h][2], boxes[t][0]]
+                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                            if (verticalDistance >= 68):
+                                if (horizontalDistance >= 3):
+                                    newOne = [boxes[h][0], boxes[t][1], boxes[t][2], boxes[h][3]]
+                                    boxes.append(np.array(newOne, np.uint16))
+                                    if (h > t):
+                                        boxes.pop(t)
+                                        boxes.pop(h - 1)
+                                    elif (h < t):
+                                        boxes.pop(h)
+                                        boxes.pop(t - 1)
+                                    h -= 1
+                                    t -= 1
+                                    break
+
+                    # check for top left
+                    if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
+                          (boxes[h][0] < boxes[t][2] < boxes[h][2]) and boxes[t][0] < boxes[h][0]):
+
+                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[h][2], boxes[t][0],
+                                      boxes[t][2], boxes[h][0]]
+                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                            if (verticalDistance >= 68):
+                                if (horizontalDistance >= 3):
+                                    newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+                                    boxes.append(np.array(newOne, np.uint16))
+                                    if (h > t):
+                                        boxes.pop(t)
+                                        boxes.pop(h - 1)
+                                    elif (h < t):
+                                        boxes.pop(h)
+                                        boxes.pop(t - 1)
+                                    h -= 1
+                                    t -= 1
+                                    break
+
+                    # check for bottom left
+                    if ((boxes[h][0] < boxes[t][1] < boxes[h][3]) and boxes[t][3] > boxes[h][3] and boxes[t][0] <
+                          boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
+
+                            points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1], boxes[h][2], boxes[t][0],
+                                      boxes[t][2], boxes[h][0]]
+                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+                            if (verticalDistance >= 68):
+                                if (horizontalDistance >= 3):
+                                    newOne = [boxes[t][0], boxes[h][1], boxes[t][2], boxes[h][3]]
+                                    boxes.append(np.array(newOne, np.uint16))
+                                    if (h > t):
+                                        boxes.pop(t)
+                                        boxes.pop(h - 1)
+                                    elif (h < t):
+                                        boxes.pop(h)
+                                        boxes.pop(t - 1)
+                                    h -= 1
+                                    t -= 1
+                                    break
+
+                    # check for exact right
+                    if ((boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
+                          (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
+
+                            points = [boxes[t][2], boxes[h][0], boxes[h][2], boxes[t][0]]
+                            horizontalDistance = self.util.getDistance(points, True)
+                            if (horizontalDistance >= 3):
+                                newOne = [boxes[h][0], boxes[h][1], t[2], boxes[h][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                h -= 1
+                                t -= 1
+                                break
+
+                    # check for exact left
+                    if (boxes[t][0] < boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
+                          (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
+                          (boxes[h][1] < boxes[t][3] < boxes[h][3])):
+
+                            points = [boxes[h][2], boxes[t][0], boxes[t][2], boxes[h][0]]
+                            horizontalDistance = self.util.getDistance(points, True)
+                            if (horizontalDistance >= 3):
+                                newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[h][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                h -= 1
+                                t -= 1
+                                break
+
+                    # check for exact bottom
+                    if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
+                          (boxes[h][1] < boxes[t][1] < boxes[h][3]) and boxes[h][3] < boxes[t][3]):
+
+                            points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1]]
+                            verticalDistance = self.util.getDistance(points, True)
+                            if (verticalDistance >= 68):
+                                newOne = [boxes[h][0], boxes[h][1], boxes[h][2], boxes[t][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                h -= 1
+                                t -= 1
+                                break
+
+                    # check for exact top
+                    if (boxes[t][1] < boxes[h][1] and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
+                          (boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
+
+                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1]]
+                            verticalDistance = self.util.getDistance(points, True)
+                            if (verticalDistance >= 68):
+                                newOne = [boxes[h][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                h -= 1
+                                t -= 1
+                                break
+
+                    # check in the middle
+                    if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
+                          (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3])):
+                            boxes.pop(t)
+                            t -= 1
+                            break
+                    h += 1
+                t += 1
+
+            logging.info("Checking for text bboxes with HTML bboxes...")
+
+            return boxes
+
+        except Exception as e:
+            logging.error("Error occurred while checking for text bboxes. ", e)
+
+
+
+
+        # try:
+        #     logging.info("Checking for text bboxes with HTML bboxes...")
+        #
+        #     newBoxes = []
+        #     boxesToRemove = []
+        #     for t in boxes:
+        #         for h in boxes:
+        #             if (t[0] == h[0] and t[3] == h[3]):
+        #                 continue
+        #
+        #             # check for bottom right
+        #             if (t[1] < h[3] and t[1] > h[1] and t[0] < h[2] and t[2] > h[2] and t[2] > h[2]):
+        #                 points = [t[3], h[1], h[3], t[1], t[2], h[0], h[2], t[0]]
+        #                 verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                 if (verticalDistance >= 75):
+        #                     if (horizontalDistance >= 3):
+        #                         newOne = [h[0], h[1], t[2], t[3]]
+        #                         newBoxes.append(np.array(newOne, np.uint8))
+        #                         boxesToRemove.append(t)
+        #                         boxesToRemove.append(h)
+        #                         break
+        #
+        #             # check for top right
+        #             elif (t[1] < h[1] and (h[3] > t[3] > h[1]) and (h[0] < t[0] < h[2]) and t[3] > h[3]):
+        #                 points = [h[3], t[1], t[3], h[1], t[2], h[0], h[2], t[0]]
+        #                 verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                 if (verticalDistance >= 75):
+        #                     if (horizontalDistance >= 3):
+        #                         newOne = [h[0], t[1], t[2], h[3]]
+        #                         newBoxes.append(np.array(newOne, np.uint8))
+        #                         boxesToRemove.append(t)
+        #                         boxesToRemove.append(h)
+        #                         break
+        #
+        #             # check for top left
+        #             elif (t[1] < h[1] and (h[3] > t[3] > h[1]) and (h[0] < t[2] < h[2]) and t[0] < h[0]):
+        #                 points = [h[3], t[1], t[3], h[1], h[2], t[0], t[2], h[0]]
+        #                 verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                 if (verticalDistance >= 75):
+        #                     if (horizontalDistance >= 3):
+        #                         newOne = [t[0], t[1], h[2], h[3]]
+        #                         newBoxes.append(np.array(newOne, np.uint8))
+        #                         boxesToRemove.append(t)
+        #                         boxesToRemove.append(h)
+        #                         break
+        #
+        #             # check for bottom left
+        #             elif ((h[0] < t[1] < h[3]) and t[3] > h[3] and t[0] < h[0] and (h[0] < t[2] < h[2])):
+        #                 points = [t[3], h[1], h[3], t[1], h[2], t[0], t[2], h[0]]
+        #                 verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                 if (verticalDistance >= 75):
+        #                     if (horizontalDistance >= 3):
+        #                         newOne = [t[0], h[1], t[2], h[3]]
+        #                         newBoxes.append(np.array(newOne, np.uint8))
+        #                         boxesToRemove.append(t)
+        #                         boxesToRemove.append(h)
+        #                         break
+        #
+        #             # check for exact right
+        #             elif ((h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3]) and (h[0] < t[0] < h[2]) and t[2] >
+        #                   h[2]):
+        #                 points = [t[2], h[0], h[2], t[0]]
+        #                 horizontalDistance = self.util.getDistance(points, True)
+        #                 if (horizontalDistance >= 3):
+        #                     newOne = [h[0], h[1], t[2], h[3]]
+        #                     newBoxes.append(np.array(newOne, np.uint8))
+        #                     boxesToRemove.append(t)
+        #                     boxesToRemove.append(h)
+        #                     break
+        #
+        #             # check for exact left
+        #             elif (t[0] < h[0] and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and (h[1] < t[3] < h[3])
+        #                       and (h[1] < t[3] < h[3])):
+        #                 points = [h[2], t[0], t[2], h[0]]
+        #                 horizontalDistance = self.util.getDistance(points, True)
+        #                 if (horizontalDistance >= 3):
+        #                     newOne = [t[0], h[1], h[2], h[3]]
+        #                     newBoxes.append(np.array(newOne, np.uint8))
+        #                     boxesToRemove.append(t)
+        #                     boxesToRemove.append(h)
+        #                     break
+        #
+        #             # check for exact bottom
+        #             elif ((h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and h[3] < t[3]):
+        #                 points = [t[3], h[1], h[3], t[1]]
+        #                 verticalDistance = self.util.getDistance(points, True)
+        #                 if (verticalDistance >= 70):
+        #                     newOne = [h[0], h[1], h[2], t[3]]
+        #                     newBoxes.append(np.array(newOne, np.uint8))
+        #                     boxesToRemove.append(t)
+        #                     boxesToRemove.append(h)
+        #                     break
+        #
+        #             # check for exact top
+        #             elif (t[1] < h[1] and (h[1] < t[3] < h[3]) and (h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2])):
+        #                 points = [h[3], t[1], t[3], h[1]]
+        #                 verticalDistance = self.util.getDistance(points, True)
+        #                 if (verticalDistance >= 70):
+        #                     newOne = [h[0], t[1], h[2], h[3]]
+        #                     newBoxes.append(np.array(newOne, np.uint8))
+        #                     boxesToRemove.append(t)
+        #                     boxesToRemove.append(h)
+        #                     break
+        #
+        #             # check in the middle
+        #             elif ((h[0] < t[0] < h[2]) and (h[0] < t[2] < h[2]) and (h[1] < t[1] < h[3]) and (
+        #                     h[1] < t[3] < h[3])):
+        #                 boxesToRemove.append(t)
+        #                 break
+        #
+        #     logging.info("Checking for text bboxes with HTML bboxes...")
+        #
+        #     return boxes
+        #
+        # except Exception as e:
+        #     logging.error("Error occurred while checking for text bboxes. ", e)

@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detection changes">
-      <change afterPath="$PROJECT_DIR$/config/Base-RCNN-FPN.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/faster_rcnn_R_101_FPN_3x.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="config update and bug fixes">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/code-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/code-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/code.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection/image_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/image_detector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detection/text_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/text_detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html_process/text_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/text_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image_processor/processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processor/processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prediction.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/app_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,28 +186,43 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>48</line>
+          <line>49</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
-          <line>54</line>
+          <line>56</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
           <line>48</line>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="7" />
+          <line>36</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/detection/text_detection.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/html_process/text_process.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

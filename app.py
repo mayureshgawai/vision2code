@@ -36,6 +36,7 @@ def index_page():
 def train():
     pass
 
+
 @app.route('/detectObject', methods=['GET', 'POST'])
 @cross_origin()
 def detectObject():
@@ -57,6 +58,7 @@ def detectObject():
     except Exception as e:
         logging.error("Error occured while detection", e)
         return "Upload Failed"
+
 
 @app.route('/download', methods=['GET', 'POST'])
 @cross_origin()

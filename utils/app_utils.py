@@ -66,6 +66,8 @@ class AppUtils:
             if (row_num1 == row_num2):
                 return row_num1
             if (row_num2 == row_num1 + 2):
+                # if elements lies in 3 rows, then align it to the middle row
+                # for eg. if row1 = 0th and row2 = 2nd, then it should select row 1st
                 return row_num2 - 1
 
             distance1 = abs(120 * (row_num1 + 1) - box[1])
@@ -95,6 +97,7 @@ class AppUtils:
         for e, l in zip(rows, labels):
             e.append(l)
         return rows
+
 
     def sortColumns(self, rows):
 
