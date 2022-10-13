@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detction logic updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/code.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection/image_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/image_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection/text_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/text_detection.py" afterDir="false" />
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detction update">
       <change beforePath="$PROJECT_DIR$/html_process/text_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/text_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665507554884</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="text detction update">
+      <created>1665648882306</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1665648882306</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,7 +189,8 @@
     <MESSAGE value="done with overlapping check of text with HTML" />
     <MESSAGE value="text detection changes" />
     <MESSAGE value="text detction logic updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="text detction logic updated" />
+    <MESSAGE value="text detction update" />
+    <option name="LAST_COMMIT_MESSAGE" value="text detction update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

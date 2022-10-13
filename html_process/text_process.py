@@ -198,7 +198,7 @@ class TextAlignment:
                             points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[h][2], boxes[t][0],
                                       boxes[t][2], boxes[h][0]]
                             verticalDistance, horizontalDistance = self.util.getDistance(points, False)
-                            if (verticalDistance >= 50):
+                            if (verticalDistance >= 68):
                                 if (horizontalDistance >= 0.3):
                                     newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3]]
                                     boxes.append(np.array(newOne, np.uint16))
