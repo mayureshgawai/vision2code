@@ -48,7 +48,7 @@ class TextDetection:
             boxes = output["instances"].pred_boxes
             labels = np.array(output["instances"].pred_classes.to("cpu"))+1
 
-            register_coco_instances("sketches_test", {}, "data/test/_annotations.coco.json", "data/test")
+            # register_coco_instances("sketches_test", {}, "data/test/_annotations.coco.json", "data/test")
             test_metadata = MetadataCatalog.get("sketches_test")
             v = Visualizer(self.image, test_metadata, scale=1.2, instance_mode=ColorMode.IMAGE_BW)
             out = v.draw_instance_predictions(output["instances"].to("cpu"))
