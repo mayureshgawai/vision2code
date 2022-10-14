@@ -44,7 +44,7 @@ class AppUtils:
         if(v_dist >= 65):
             # horizontally
             total_h = points[4] - points[5]
-            dist_h = points[7] - points[6]
+            dist_h = points[6] - points[7]
             h_dist = (dist_h / total_h) * 100
             if(h_dist >= 0.05):
                 return True

@@ -152,8 +152,8 @@ class TextAlignment:
                         continue
 
                     # check for bottom right
-                    if (boxes[t][1] < boxes[h][3] and boxes[t][1] > boxes[h][1] and boxes[t][0] < boxes[h][2] and
-                        boxes[t][2] > boxes[h][2] and boxes[t][2] > boxes[h][2]):
+                    if (boxes[t][1] <= boxes[h][3] and boxes[t][1] >= boxes[h][1] and boxes[t][0] <= boxes[h][2] and
+                        boxes[t][2] >= boxes[h][2] and boxes[t][2] >= boxes[h][2]):
                             points = [boxes[t][3], boxes[t][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[t][0],
                                       boxes[h][2], boxes[t][0], boxes[h][3], boxes[h][1], boxes[t][1], boxes[h][3],
                                       boxes[h][2], boxes[h][0], boxes[t][2], boxes[h][0]]
@@ -174,8 +174,8 @@ class TextAlignment:
                                 break
 
                     # check for top right
-                    if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
-                          (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
+                    if (boxes[t][1] <= boxes[h][1] and (boxes[h][3] >= boxes[t][3] >= boxes[h][1]) and
+                          (boxes[h][0] <= boxes[t][0] <= boxes[h][2]) and boxes[t][2] >= boxes[h][2]):
                             points = [boxes[t][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[t][0],
                                       boxes[h][2], boxes[t][0], boxes[h][3], boxes[h][1], boxes[t][3], boxes[h][1],
                                       boxes[h][2], boxes[h][0], boxes[h][2], boxes[t][0]]
@@ -194,8 +194,8 @@ class TextAlignment:
                                 break
 
                     # check for top left
-                    if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
-                          (boxes[h][0] < boxes[t][2] < boxes[h][2]) and boxes[t][0] < boxes[h][0]):
+                    if (boxes[t][1] <= boxes[h][1] and (boxes[h][3] >= boxes[t][3] >= boxes[h][1]) and
+                          (boxes[h][0] <= boxes[t][2] <= boxes[h][2]) and boxes[t][0] <= boxes[h][0]):
 
                             points = [boxes[t][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[t][0],
                                       boxes[t][2], boxes[h][0], boxes[h][3], boxes[h][1], boxes[t][3], boxes[h][1],
@@ -215,8 +215,8 @@ class TextAlignment:
                                 break
 
                     # check for bottom left
-                    if ((boxes[h][0] < boxes[t][1] < boxes[h][3]) and boxes[t][3] > boxes[h][3] and boxes[t][0] <
-                          boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
+                    if ((boxes[h][0] <= boxes[t][1] <= boxes[h][3]) and boxes[t][3] >= boxes[h][3] and boxes[t][0] <=
+                          boxes[h][0] and (boxes[h][0] <= boxes[t][2] <= boxes[h][2])):
 
                             points = [boxes[t][3], boxes[t][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[t][0],
                                       boxes[t][2], boxes[h][0], boxes[h][3], boxes[h][1], boxes[h][3], boxes[t][1],
@@ -224,7 +224,7 @@ class TextAlignment:
 
                             if (self.util.checkDistance(points)):
 
-                                newOne = [boxes[t][0], boxes[h][1], boxes[t][2], boxes[h][3]]
+                                newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[t][3]]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -236,8 +236,8 @@ class TextAlignment:
                                 break
 
                     # check for exact right
-                    if ((boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
-                          (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
+                    if ((boxes[h][1] <= boxes[t][1] <= boxes[h][3]) and (boxes[h][1] <= boxes[t][3] <= boxes[h][3]) and
+                          (boxes[h][0] <= boxes[t][0] <= boxes[h][2]) and boxes[t][2] >= boxes[h][2]):
 
                             points = [boxes[h][2], boxes[t][0], boxes[t][2], boxes[t][0], boxes[h][2], boxes[h][0]]
 
@@ -254,9 +254,9 @@ class TextAlignment:
                                 break
 
                     # check for exact left
-                    if (boxes[t][0] < boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
-                          (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
-                          (boxes[h][1] < boxes[t][3] < boxes[h][3])):
+                    if (boxes[t][0] <= boxes[h][0] and (boxes[h][0] <= boxes[t][2] <= boxes[h][2]) and
+                          (boxes[h][1] <= boxes[t][1] <= boxes[h][3]) and (boxes[h][1] <= boxes[t][3] <= boxes[h][3]) and
+                          (boxes[h][1] <= boxes[t][3] <= boxes[h][3])):
 
                             points = [boxes[t][2], boxes[h][0], boxes[t][2], boxes[t][0], boxes[h][2], boxes[h][0]]
 
@@ -273,8 +273,8 @@ class TextAlignment:
                                 break
 
                     # check for exact bottom
-                    if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
-                          (boxes[h][1] < boxes[t][1] < boxes[h][3]) and boxes[h][3] < boxes[t][3]):
+                    if ((boxes[h][0] <= boxes[t][0] <= boxes[h][2]) and (boxes[h][0] <= boxes[t][2] <= boxes[h][2]) and
+                          (boxes[h][1] <= boxes[t][1] <= boxes[h][3]) and boxes[h][3] <= boxes[t][3]):
 
                             points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[t][1], boxes[h][3], boxes[h][1]]
 
@@ -291,8 +291,8 @@ class TextAlignment:
                                 break
 
                     # check for exact top
-                    if (boxes[t][1] < boxes[h][1] and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
-                          (boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
+                    if (boxes[t][1] <= boxes[h][1] and (boxes[h][1] <= boxes[t][3] <= boxes[h][3]) and
+                          (boxes[h][0] <= boxes[t][0] <= boxes[h][2]) and (boxes[h][0] <= boxes[t][2] <= boxes[h][2])):
 
                             points = [boxes[t][3], boxes[h][1], boxes[t][3], boxes[t][1], boxes[h][3], boxes[h][1]]
 
@@ -309,8 +309,8 @@ class TextAlignment:
                                 break
 
                     # check in the middle
-                    if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
-                          (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3])):
+                    if ((boxes[h][0] <= boxes[t][0] <= boxes[h][2]) and (boxes[h][0] <= boxes[t][2] <= boxes[h][2]) and
+                          (boxes[h][1] <= boxes[t][1] <= boxes[h][3]) and (boxes[h][1] <= boxes[t][3] <= boxes[h][3])):
                             boxes.pop(t)
                             t -= 1
                             break
