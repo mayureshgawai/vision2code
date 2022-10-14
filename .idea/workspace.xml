@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detction update">
+    <list default="true" id="6891cc1d-b444-4380-b42f-2f9edd85aa0e" name="Changes" comment="text detection update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html_process/text_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/html_process/text_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/app_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/app_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665648882306</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="text detection update">
+      <created>1665648932510</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1665648932510</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +200,8 @@
     <MESSAGE value="text detection changes" />
     <MESSAGE value="text detction logic updated" />
     <MESSAGE value="text detction update" />
-    <option name="LAST_COMMIT_MESSAGE" value="text detction update" />
+    <MESSAGE value="text detection update" />
+    <option name="LAST_COMMIT_MESSAGE" value="text detection update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -234,11 +245,6 @@
           <url>file://$PROJECT_DIR$/image_processor/processor.py</url>
           <line>61</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/html_process/text_process.py</url>
-          <line>154</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

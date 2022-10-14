@@ -154,90 +154,94 @@ class TextAlignment:
                     # check for bottom right
                     if (boxes[t][1] < boxes[h][3] and boxes[t][1] > boxes[h][1] and boxes[t][0] < boxes[h][2] and
                         boxes[t][2] > boxes[h][2] and boxes[t][2] > boxes[h][2]):
-                            points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[h][0],
-                                      boxes[h][2], boxes[t][0]]
-                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
-                            if (verticalDistance >= 68):
-                                if (horizontalDistance >= 0.3):
-                                    newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[t][3]]
-                                    boxes.append(np.array(newOne, np.uint16))
-                                    if (h > t):
-                                        boxes.pop(t)
-                                        # we have to use h - 1, because after deleting t th element, h might point
-                                        # element of position one index forward. Same for condition (h < t)
-                                        boxes.pop(h - 1)
-                                    elif(h < t):
-                                        boxes.pop(h)
-                                        boxes.pop(t - 1)
-                                    t -= 1
-                                    break
+                            points = [boxes[t][3], boxes[t][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[t][0],
+                                      boxes[h][2], boxes[t][0], boxes[h][3], boxes[h][1], boxes[t][1], boxes[h][3],
+                                      boxes[h][2], boxes[h][0], boxes[t][2], boxes[h][0]]
+
+                            if (self.util.checkDistance(points)):
+
+                                newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[t][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    # we have to use h - 1, because after deleting t th element, h might point
+                                    # element of position one index forward. Same for condition (h < t)
+                                    boxes.pop(h - 1)
+                                elif(h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                t -= 1
+                                break
 
                     # check for top right
                     if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
                           (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
-                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[h][0],
-                                      boxes[h][2], boxes[t][0]]
-                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
-                            if (verticalDistance >= 68):
-                                if (horizontalDistance >= 0.3):
-                                    newOne = [boxes[h][0], boxes[t][1], boxes[t][2], boxes[h][3]]
-                                    boxes.append(np.array(newOne, np.uint16))
-                                    if (h > t):
-                                        boxes.pop(t)
-                                        boxes.pop(h - 1)
-                                    elif (h < t):
-                                        boxes.pop(h)
-                                        boxes.pop(t - 1)
-                                    t -= 1
-                                    break
+                            points = [boxes[t][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[t][0],
+                                      boxes[h][2], boxes[t][0], boxes[h][3], boxes[h][1], boxes[t][3], boxes[h][1],
+                                      boxes[h][2], boxes[h][0], boxes[h][2], boxes[t][0]]
+
+                            if (self.util.checkDistance(points)):
+
+                                newOne = [boxes[h][0], boxes[t][1], boxes[t][2], boxes[h][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                t -= 1
+                                break
 
                     # check for top left
                     if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
                           (boxes[h][0] < boxes[t][2] < boxes[h][2]) and boxes[t][0] < boxes[h][0]):
 
-                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[h][2], boxes[t][0],
-                                      boxes[t][2], boxes[h][0]]
-                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
-                            if (verticalDistance >= 68):
-                                if (horizontalDistance >= 0.3):
-                                    newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3]]
-                                    boxes.append(np.array(newOne, np.uint16))
-                                    if (h > t):
-                                        boxes.pop(t)
-                                        boxes.pop(h - 1)
-                                    elif (h < t):
-                                        boxes.pop(h)
-                                        boxes.pop(t - 1)
-                                    t -= 1
-                                    break
+                            points = [boxes[t][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[t][0],
+                                      boxes[t][2], boxes[h][0], boxes[h][3], boxes[h][1], boxes[t][3], boxes[h][1],
+                                      boxes[h][2], boxes[h][0], boxes[t][2], boxes[h][0]]
+
+                            if (self.util.checkDistance(points)):
+
+                                newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                t -= 1
+                                break
 
                     # check for bottom left
                     if ((boxes[h][0] < boxes[t][1] < boxes[h][3]) and boxes[t][3] > boxes[h][3] and boxes[t][0] <
                           boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
 
-                            points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1], boxes[h][2], boxes[t][0],
-                                      boxes[t][2], boxes[h][0]]
-                            verticalDistance, horizontalDistance = self.util.getDistance(points, False)
-                            if (verticalDistance >= 68):
-                                if (horizontalDistance >= 0.3):
-                                    newOne = [boxes[t][0], boxes[h][1], boxes[t][2], boxes[h][3]]
-                                    boxes.append(np.array(newOne, np.uint16))
-                                    if (h > t):
-                                        boxes.pop(t)
-                                        boxes.pop(h - 1)
-                                    elif (h < t):
-                                        boxes.pop(h)
-                                        boxes.pop(t - 1)
-                                    t -= 1
-                                    break
+                            points = [boxes[t][3], boxes[t][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[t][0],
+                                      boxes[t][2], boxes[h][0], boxes[h][3], boxes[h][1], boxes[h][3], boxes[t][1],
+                                      boxes[h][2], boxes[h][0], boxes[t][2], boxes[h][0]]
+
+                            if (self.util.checkDistance(points)):
+
+                                newOne = [boxes[t][0], boxes[h][1], boxes[t][2], boxes[h][3]]
+                                boxes.append(np.array(newOne, np.uint16))
+                                if (h > t):
+                                    boxes.pop(t)
+                                    boxes.pop(h - 1)
+                                elif (h < t):
+                                    boxes.pop(h)
+                                    boxes.pop(t - 1)
+                                t -= 1
+                                break
 
                     # check for exact right
                     if ((boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
                           (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
 
-                            points = [boxes[t][2], boxes[h][0], boxes[h][2], boxes[t][0]]
-                            horizontalDistance = self.util.getDistance(points, True)
-                            if (horizontalDistance >= 0.3):
+                            points = [boxes[h][2], boxes[t][0], boxes[t][2], boxes[t][0], boxes[h][2], boxes[h][0]]
+
+                            if (self.util.checkDistanceForExact(points)):
                                 newOne = [boxes[h][0], boxes[h][1], t[2], boxes[h][3]]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
@@ -254,9 +258,9 @@ class TextAlignment:
                           (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
                           (boxes[h][1] < boxes[t][3] < boxes[h][3])):
 
-                            points = [boxes[h][2], boxes[t][0], boxes[t][2], boxes[h][0]]
-                            horizontalDistance = self.util.getDistance(points, True)
-                            if (horizontalDistance >= 0.3):
+                            points = [boxes[t][2], boxes[h][0], boxes[t][2], boxes[t][0], boxes[h][2], boxes[h][0]]
+
+                            if (self.util.checkDistanceForExact(points)):
                                 newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[h][3]]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
@@ -272,9 +276,9 @@ class TextAlignment:
                     if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
                           (boxes[h][1] < boxes[t][1] < boxes[h][3]) and boxes[h][3] < boxes[t][3]):
 
-                            points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1]]
-                            verticalDistance = self.util.getDistance(points, True)
-                            if (verticalDistance >= 68):
+                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[t][1], boxes[h][3], boxes[h][1]]
+
+                            if (self.util.checkDistanceForExact(points)):
                                 newOne = [boxes[h][0], boxes[h][1], boxes[h][2], boxes[t][3]]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
@@ -290,9 +294,9 @@ class TextAlignment:
                     if (boxes[t][1] < boxes[h][1] and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
                           (boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
 
-                            points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1]]
-                            verticalDistance = self.util.getDistance(points, True)
-                            if (verticalDistance >= 68):
+                            points = [boxes[t][3], boxes[h][1], boxes[t][3], boxes[t][1], boxes[h][3], boxes[h][1]]
+
+                            if (self.util.checkDistanceForExact(points)):
                                 newOne = [boxes[h][0], boxes[t][1], boxes[h][2], boxes[h][3]]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
@@ -320,3 +324,192 @@ class TextAlignment:
         except Exception as e:
             logging.error("Error occurred while checking for text bboxes. ", e)
 
+
+
+
+
+
+
+
+        #
+        # try:
+        #     logging.info("Checking for text bboxes with HTML bboxes...")
+        #
+        #     t = 0
+        #     h = 0
+        #
+        #     for box in range(0, len(boxes)):
+        #         h = 0
+        #         for nbox in range(0, len(boxes)):
+        #             if (boxes[t][0] == boxes[h][0] and boxes[t][3] == boxes[h][3]):
+        #                 h += 1
+        #                 continue
+        #
+        #             # check for bottom right
+        #             if (boxes[t][1] < boxes[h][3] and boxes[t][1] > boxes[h][1] and boxes[t][0] < boxes[h][2] and
+        #                 boxes[t][2] > boxes[h][2] and boxes[t][2] > boxes[h][2]):
+        #                     points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1], boxes[t][2], boxes[h][0],
+        #                               boxes[h][2], boxes[t][0]]
+        #                     verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                     if (verticalDistance >= 68):
+        #                         if (horizontalDistance >= 0.3):
+        #                             newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[t][3]]
+        #                             boxes.append(np.array(newOne, np.uint16))
+        #                             if (h > t):
+        #                                 boxes.pop(t)
+        #                                 # we have to use h - 1, because after deleting t th element, h might point
+        #                                 # element of position one index forward. Same for condition (h < t)
+        #                                 boxes.pop(h - 1)
+        #                             elif(h < t):
+        #                                 boxes.pop(h)
+        #                                 boxes.pop(t - 1)
+        #                             t -= 1
+        #                             break
+        #
+        #             # check for top right
+        #             if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
+        #                   (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
+        #                     points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[t][2], boxes[h][0],
+        #                               boxes[h][2], boxes[t][0]]
+        #                     verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                     if (verticalDistance >= 68):
+        #                         if (horizontalDistance >= 0.3):
+        #                             newOne = [boxes[h][0], boxes[t][1], boxes[t][2], boxes[h][3]]
+        #                             boxes.append(np.array(newOne, np.uint16))
+        #                             if (h > t):
+        #                                 boxes.pop(t)
+        #                                 boxes.pop(h - 1)
+        #                             elif (h < t):
+        #                                 boxes.pop(h)
+        #                                 boxes.pop(t - 1)
+        #                             t -= 1
+        #                             break
+        #
+        #             # check for top left
+        #             if (boxes[t][1] < boxes[h][1] and (boxes[h][3] > boxes[t][3] > boxes[h][1]) and
+        #                   (boxes[h][0] < boxes[t][2] < boxes[h][2]) and boxes[t][0] < boxes[h][0]):
+        #
+        #                     points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1], boxes[h][2], boxes[t][0],
+        #                               boxes[t][2], boxes[h][0]]
+        #                     verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                     if (verticalDistance >= 68):
+        #                         if (horizontalDistance >= 0.3):
+        #                             newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+        #                             boxes.append(np.array(newOne, np.uint16))
+        #                             if (h > t):
+        #                                 boxes.pop(t)
+        #                                 boxes.pop(h - 1)
+        #                             elif (h < t):
+        #                                 boxes.pop(h)
+        #                                 boxes.pop(t - 1)
+        #                             t -= 1
+        #                             break
+        #
+        #             # check for bottom left
+        #             if ((boxes[h][0] < boxes[t][1] < boxes[h][3]) and boxes[t][3] > boxes[h][3] and boxes[t][0] <
+        #                   boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
+        #
+        #                     points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1], boxes[h][2], boxes[t][0],
+        #                               boxes[t][2], boxes[h][0]]
+        #                     verticalDistance, horizontalDistance = self.util.getDistance(points, False)
+        #                     if (verticalDistance >= 68):
+        #                         if (horizontalDistance >= 0.3):
+        #                             newOne = [boxes[t][0], boxes[h][1], boxes[t][2], boxes[h][3]]
+        #                             boxes.append(np.array(newOne, np.uint16))
+        #                             if (h > t):
+        #                                 boxes.pop(t)
+        #                                 boxes.pop(h - 1)
+        #                             elif (h < t):
+        #                                 boxes.pop(h)
+        #                                 boxes.pop(t - 1)
+        #                             t -= 1
+        #                             break
+        #
+        #             # check for exact right
+        #             if ((boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
+        #                   (boxes[h][0] < boxes[t][0] < boxes[h][2]) and boxes[t][2] > boxes[h][2]):
+        #
+        #                     points = [boxes[t][2], boxes[h][0], boxes[h][2], boxes[t][0]]
+        #                     horizontalDistance = self.util.getDistance(points, True)
+        #                     if (horizontalDistance >= 0.3):
+        #                         newOne = [boxes[h][0], boxes[h][1], t[2], boxes[h][3]]
+        #                         boxes.append(np.array(newOne, np.uint16))
+        #                         if (h > t):
+        #                             boxes.pop(t)
+        #                             boxes.pop(h - 1)
+        #                         elif (h < t):
+        #                             boxes.pop(h)
+        #                             boxes.pop(t - 1)
+        #                         t -= 1
+        #                         break
+        #
+        #             # check for exact left
+        #             if (boxes[t][0] < boxes[h][0] and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
+        #                   (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
+        #                   (boxes[h][1] < boxes[t][3] < boxes[h][3])):
+        #
+        #                     points = [boxes[h][2], boxes[t][0], boxes[t][2], boxes[h][0]]
+        #                     horizontalDistance = self.util.getDistance(points, True)
+        #                     if (horizontalDistance >= 0.3):
+        #                         newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[h][3]]
+        #                         boxes.append(np.array(newOne, np.uint16))
+        #                         if (h > t):
+        #                             boxes.pop(t)
+        #                             boxes.pop(h - 1)
+        #                         elif (h < t):
+        #                             boxes.pop(h)
+        #                             boxes.pop(t - 1)
+        #                         t -= 1
+        #                         break
+        #
+        #             # check for exact bottom
+        #             if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
+        #                   (boxes[h][1] < boxes[t][1] < boxes[h][3]) and boxes[h][3] < boxes[t][3]):
+        #
+        #                     points = [boxes[t][3], boxes[h][1], boxes[h][3], boxes[t][1]]
+        #                     verticalDistance = self.util.getDistance(points, True)
+        #                     if (verticalDistance >= 68):
+        #                         newOne = [boxes[h][0], boxes[h][1], boxes[h][2], boxes[t][3]]
+        #                         boxes.append(np.array(newOne, np.uint16))
+        #                         if (h > t):
+        #                             boxes.pop(t)
+        #                             boxes.pop(h - 1)
+        #                         elif (h < t):
+        #                             boxes.pop(h)
+        #                             boxes.pop(t - 1)
+        #                         t -= 1
+        #                         break
+        #
+        #             # check for exact top
+        #             if (boxes[t][1] < boxes[h][1] and (boxes[h][1] < boxes[t][3] < boxes[h][3]) and
+        #                   (boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2])):
+        #
+        #                     points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[h][1]]
+        #                     verticalDistance = self.util.getDistance(points, True)
+        #                     if (verticalDistance >= 68):
+        #                         newOne = [boxes[h][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+        #                         boxes.append(np.array(newOne, np.uint16))
+        #                         if (h > t):
+        #                             boxes.pop(t)
+        #                             boxes.pop(h - 1)
+        #                         elif (h < t):
+        #                             boxes.pop(h)
+        #                             boxes.pop(t - 1)
+        #                         t -= 1
+        #                         break
+        #
+        #             # check in the middle
+        #             if ((boxes[h][0] < boxes[t][0] < boxes[h][2]) and (boxes[h][0] < boxes[t][2] < boxes[h][2]) and
+        #                   (boxes[h][1] < boxes[t][1] < boxes[h][3]) and (boxes[h][1] < boxes[t][3] < boxes[h][3])):
+        #                     boxes.pop(t)
+        #                     t -= 1
+        #                     break
+        #             h += 1
+        #         t += 1
+        #
+        #     logging.info("Checking for text bboxes with HTML bboxes...")
+        #
+        #     return boxes
+        #
+        # except Exception as e:
+        #     logging.error("Error occurred while checking for text bboxes. ", e)

@@ -34,6 +34,51 @@ class AppUtils:
         return verticalDistance, horizontalDistance
 
 
+    def checkDistance(self, points):
+
+        # for t
+        # vertically
+        total = points[0] - points[1]
+        dist = points[2] - points[3]
+        v_dist = (dist / total) * 100
+        if(v_dist >= 65):
+            # horizontally
+            total_h = points[4] - points[5]
+            dist_h = points[7] - points[6]
+            h_dist = (dist_h / total_h) * 100
+            if(h_dist >= 0.05):
+                return True
+
+        # for nbox
+        # vertically
+        total = points[8] - points[9]
+        dist = points[10] - points[11]
+        v_dist = (dist / total) * 100
+        if (v_dist >= 65):
+            # horizontally
+            total_h = points[12] - points[13]
+            dist_h = points[14] - points[15]
+            h_dist = (dist_h / total_h) * 100
+            if (h_dist >= 0.05):
+                return True
+        return False
+
+    def checkDistanceForExact(self, points):
+
+        dist = points[0] - points[1]
+
+        # for t
+        total = points[2] - points[3]
+        t_dist = (dist / total) * 100
+        if(t_dist >= 65):
+            return True
+
+        # for h
+        total_h = points[4] - points[5]
+        h_dist = (dist / total_h) * 100
+        if (h_dist >= 65):
+            return True
+        return False
 
     def getRowNumber(self, num):
         '''
