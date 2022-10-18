@@ -8,32 +8,6 @@ class AppUtils:
     AppUtils is a class contains functions which can be used by the workflow for the basic utility operations.
     """
 
-    def getDistance(self, points, exactSide):
-        '''
-            This function is responsible to find distance between two bboxes (only called when they are overlapping)
-            both vertically and horizontally.
-            param: 4 points
-            return:
-        '''
-
-        if(exactSide):
-            total = points[0] - points[1]
-            distance = points[2] - points[3]
-            exactDistance = (distance / total) * 100
-
-            return exactDistance
-
-        vTotal = points[0] - points[1]
-        vDistance = points[2] - points[3]
-        verticalDistance = (vDistance / vTotal) * 100
-
-        hTotal = points[4] - points[5]
-        hDistance = points[6] - points[7]
-        horizontalDistance = (hDistance / hTotal) * 100
-
-        return verticalDistance, horizontalDistance
-
-
     def checkDistance(self, points):
 
         # for t
@@ -41,7 +15,7 @@ class AppUtils:
         total = points[0] - points[1]
         dist = points[2] - points[3]
         v_dist = (dist / total) * 100
-        if(v_dist >= 65):
+        if(v_dist >= 60):
             # horizontally
             total_h = points[4] - points[5]
             dist_h = points[6] - points[7]
@@ -80,9 +54,31 @@ class AppUtils:
             return True
         return False
 
+    def checkDistanceForHTML(self, points):
+
+        vtotal = points[0] - points[1]
+        vdist = points[2] - points[3]
+        vperc = (vdist / vtotal) * 100
+        if(vperc >= 70):
+            htotal = points[4] - points[5]
+            hdist = points[6] - points[7]
+            hperc = (hdist / htotal) * 100
+            if(hperc >= 70):
+                return True
+
+    def checkDistanceForHTMLExact(self, points):
+
+        total = points[0] - points[1]
+        dist = points[2] - points[3]
+        perc = (dist / total) * 100
+        if(perc >= 70):
+            return True
+
+
     def getRowNumber(self, num):
         '''
-            It is important to know that in which part of the image the element resides. This function calculates row number.
+            Description: It is important to know that in which part of the image the element resides. This function calculates row
+            number.
             param: num (Y1)
             return: int
         '''
@@ -101,8 +97,8 @@ class AppUtils:
 
     def getActualRowNumber(self, row_num1, row_num2, box):
         '''
-            To get actual row number in case if element resides in 2 consecutive rows. (for eg. y1 in row-1 and y2 in
-            row2)
+            Description: To get actual row number in case if element resides in 2 consecutive rows. (for eg. y1 in row-1
+            and y2 in row2)
             param:row_num1, row_num2, box
             return: int
         '''
@@ -134,7 +130,7 @@ class AppUtils:
     def attachLabels(self, rows, labels):
 
         '''
-            To combine the bbox and labels into a single list
+            Description: To combine the bbox and labels into a single list
             param: rows, labels
             return: list
         '''
@@ -147,7 +143,7 @@ class AppUtils:
     def sortColumns(self, rows):
 
         '''
-            Sorting of elements placed in columns to perfectly align them on the page
+            Description: Sorting of elements placed in columns to perfectly align them on the page
             param: rows
             return:
         '''

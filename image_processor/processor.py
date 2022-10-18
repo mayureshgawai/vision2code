@@ -34,14 +34,13 @@ class ImageProcessor:
         try:
             # To get the all detections and the labels to pass in the HTML parsing methods.
             # Configurations for the detections are there in config file.
-            # box_text, labels = self.detection.detection()
-            #
-            # box_text = np.array(box_text.to("cpu"))
-            #
-            # # Before processing on boxes, we have to convert them all from tensors into numpy arrays.
-            # boxes = []
-            # for b in box_text:
-            #     boxes.append(np.array(b.to("cpu"), np.uint16))
+            box_text, labels = self.detection.detection()
+            box_text = np.array(box_text.to("cpu"))
+
+            # Before processing on boxes, we have to convert them all from tensors into numpy arrays.
+            boxes = []
+            for b in box_text:
+                boxes.append(np.array(b.to("cpu"), np.uint16))
 
             # Now we can move to the phase of HTML creation.
             logging.info("Text Detection and conversion stage begins here")
@@ -54,7 +53,7 @@ class ImageProcessor:
                 boxes_text.append(np.array(b.to("cpu"), np.uint16))
 
             # check overlapping for html and text boxes
-            # boxesToRemove = self.textprocess.checkForTextBboxesWithHTML(boxes_text,  boxes)
+            boxes_text = self.textprocess.checkForTextBboxesWithHTML(boxes_text,  boxes)
             # check overlapping for text and text boxes
             boxes_text = self.textprocess.checkForTextBBoxes(boxes_text)
 

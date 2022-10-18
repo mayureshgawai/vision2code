@@ -2,7 +2,6 @@ import logging
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
 from detectron2.engine import default_argument_parser
-from detectron2 import model_zoo
 from detectron2.engine import default_setup
 import numpy as np
 import os
@@ -13,9 +12,8 @@ from app_exception import AppException
 import cv2
 from detectron2.utils.visualizer import ColorMode
 from detectron2.utils.visualizer import Visualizer
-from detectron2.data.datasets import register_coco_instances
 from detectron2.data import MetadataCatalog, DatasetCatalog
-import matplotlib.pyplot as plt
+
 
 
 
@@ -43,14 +41,15 @@ class TextDetection:
 
             predictor = DefaultPredictor(cfg)
 
-            # image = cv2.imread("save1.jpg")
+            image = cv2.imread("save1.jpg")
+            image = cv2.resize(image, (480, 480))
             output = predictor(self.image)
             boxes = output["instances"].pred_boxes
             labels = np.array(output["instances"].pred_classes.to("cpu"))+1
 
             # register_coco_instances("sketches_test", {}, "data/test/_annotations.coco.json", "data/test")
             test_metadata = MetadataCatalog.get("sketches_test")
-            v = Visualizer(self.image, test_metadata, scale=1.2, instance_mode=ColorMode.IMAGE_BW)
+            v = Visualizer(image, test_metadata, scale=1.2, instance_mode=ColorMode.IMAGE_BW)
             out = v.draw_instance_predictions(output["instances"].to("cpu"))
             cv2.imwrite("save3.jpg", out.get_image())
 
@@ -64,7 +63,6 @@ class TextDetection:
         Create configs and perform basic setups.
         """
         cfg = get_cfg()
-        con = args.config_file
         cfg.merge_from_file(args.config_file)
         cfg.merge_from_list(args.opts)
         cfg.freeze()
