@@ -3,8 +3,12 @@ root_dir: 'C:\Users\ASUS\OneNeuron\practice\dt2_sk2co'
 prediction:
   temp_data: './temp_data'
   out_dir: "HTML output"
+  ocr_config: "--oem 3--psm 6"
 
-training:
+ocr:
+  detection: "PS_CTW"
+  recognition: "NRTR_1/8-1/4"
+  config_dir: "mmocr-ocr/configs"
 
 text_detection:
   config_file: "config/faster_rcnn_R_101_FPN_3x.yaml"

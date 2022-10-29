@@ -135,8 +135,6 @@ class TextAlignment:
                     h += 1
                 t += 1
 
-            logging.info("Checking for text bboxes with HTML bboxes...")
-
             return boxes
 
         except Exception as e:
@@ -162,7 +160,7 @@ class TextAlignment:
         '''
 
         try:
-            logging.info("Checking for text bboxes with HTML bboxes...")
+            logging.info("Checking for text bboxes overlappings...")
 
             t = 0
             h = 0
@@ -183,7 +181,7 @@ class TextAlignment:
 
                             if (self.util.checkDistance(points)):
 
-                                newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[t][3]]
+                                newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[t][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -205,7 +203,7 @@ class TextAlignment:
 
                             if (self.util.checkDistance(points)):
 
-                                newOne = [boxes[h][0], boxes[t][1], boxes[t][2], boxes[h][3]]
+                                newOne = [boxes[h][0], boxes[t][1], boxes[t][2], boxes[h][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -225,7 +223,7 @@ class TextAlignment:
 
                             if (self.util.checkDistance(points)):
 
-                                newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+                                newOne = [boxes[t][0], boxes[t][1], boxes[h][2], boxes[h][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -245,7 +243,7 @@ class TextAlignment:
 
                             if (self.util.checkDistance(points)):
 
-                                newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[t][3]]
+                                newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[t][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -261,8 +259,8 @@ class TextAlignment:
                           (boxes[h][0] <= boxes[t][0] <= boxes[h][2]) and boxes[t][2] >= boxes[h][2]):
                             points = [boxes[h][2], boxes[t][0], boxes[t][2], boxes[t][0], boxes[h][2], boxes[h][0]]
 
-                            if (self.util.checkDistanceForExact(points)):
-                                newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[h][3]]
+                            if (self.util.checkDistanceForExact(points, True)):
+                                newOne = [boxes[h][0], boxes[h][1], boxes[t][2], boxes[h][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -279,8 +277,8 @@ class TextAlignment:
                           (boxes[h][1] <= boxes[t][3] <= boxes[h][3])):
                             points = [boxes[t][2], boxes[h][0], boxes[t][2], boxes[t][0], boxes[h][2], boxes[h][0]]
 
-                            if (self.util.checkDistanceForExact(points)):
-                                newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[h][3]]
+                            if (self.util.checkDistanceForExact(points, True)):
+                                newOne = [boxes[t][0], boxes[h][1], boxes[h][2], boxes[h][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -297,7 +295,7 @@ class TextAlignment:
                             points = [boxes[h][3], boxes[t][1], boxes[t][3], boxes[t][1], boxes[h][3], boxes[h][1]]
 
                             if (self.util.checkDistanceForExact(points)):
-                                newOne = [boxes[h][0], boxes[h][1], boxes[h][2], boxes[t][3]]
+                                newOne = [boxes[h][0], boxes[h][1], boxes[h][2], boxes[t][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -314,7 +312,7 @@ class TextAlignment:
                             points = [boxes[t][3], boxes[h][1], boxes[t][3], boxes[t][1], boxes[h][3], boxes[h][1]]
 
                             if (self.util.checkDistanceForExact(points)):
-                                newOne = [boxes[h][0], boxes[t][1], boxes[h][2], boxes[h][3]]
+                                newOne = [boxes[h][0], boxes[t][1], boxes[h][2], boxes[h][3], 0]
                                 boxes.append(np.array(newOne, np.uint16))
                                 if (h > t):
                                     boxes.pop(t)
@@ -333,8 +331,6 @@ class TextAlignment:
                             break
                     h += 1
                 t += 1
-
-            logging.info("Checking for text bboxes with HTML bboxes...")
 
             return boxes
 

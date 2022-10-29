@@ -1,19 +1,19 @@
-def getCheckbox(add, names):
+def getCheckbox(**kwargs):
     print("checkbox...")
-    with add.div(klass="form-check"):
-        add.input(klass="form-check-input", type="checkbox", id="sample_check1", name="sample_check1")
-        string = ['<label class="form-check-label" for="sample_check1">', names, '</label>']
-        # add._doc_elements.append(i)
+    with kwargs['add'].div(klass="form-check"):
+        kwargs['add'].input(klass="form-check-input", type="checkbox", id="sample_check1", name="sample_check1")
+        string = ['<label class="form-check-label" for="sample_check1">', kwargs['text'], '</label>']
+        # kwargs['add']._doc_elements.append(i)
         for i in string:
-            add._doc_elements.append(i)
+            kwargs['add']._doc_elements.append(i)
 
 
-def getButton(add, name):
+def getButton(**kwargs):
     print("button...")
-    add.button(type="button", klass="btn btn-primary px-3", _t=name)
+    kwargs['add'].button(type="button", klass="btn btn-primary px-3", _t=kwargs['text'])
 
 
-def getCarousel(add):
+def getCarousel():
     string = ['<div class="container">',
               '<div id="carousel" class="carousel slide" data-ride="carousel" style="height:150px; width:200px">',
               '<a class="left carousel-control" href="#carousel" data-slide="prev">',
@@ -38,138 +38,156 @@ def getCarousel(add):
     return string
 
 
-def getHeading(add, name):
+def getHeading(**kwargs):
     print("heading...")
-    with add.p(klass="h3"):
-        add(name)
+    with kwargs['add'].p(klass="h4"):
+        kwargs['add'](kwargs['text'])
+
+def getHeadingsTop(**kwargs):
+    print("heading...")
+    with kwargs['add'].p(klass="h2"):
+        kwargs['add'](kwargs['text'])
 
 
-def getImage(add):
+def getImage(**kwargs):
     print("image...")
-    add.img(src="image.png", klass="img-fluid mt-4", alt="Any alternative")
+    kwargs['add'].img(src="https://fakeimg.pl/480/", klass="img-fluid mt-4", alt="Any alternative")
 
 
-def getLabel(add, name):
+def getLabel(**kwargs):
     print("label...")
-    with add.label():
-        add(name)
+    with kwargs['add'].label():
+        kwargs['add'](kwargs['text'])
 
 
-def getLink(add, name):
+def getLink(**kwargs):
     print("link...")
-    with add.a(href="#", klass="stretched-link"):
-        add(name)
+    with kwargs['add'].a(href="#", klass="stretched-link"):
+        kwargs['add'](kwargs['text'])
 
 
-def getPagination(add):
+def getPagination(**kwargs):
     print("pagination...")
-    with add.ul(klass="pagination"):
-        with add.li(klass="page-item"):
-            add.a(klass="page-item", href="#", _t="Previous")
-        with add.li(klass="page-item"):
-            add.a(klass="page-item", href="#", _t="1")
-        with add.li(klass="page-item"):
-            add.a(klass="page-item", href="#", _t="2")
-        with add.li(klass="page-item"):
-            add.a(klass="page-item", href="#", _t="3")
-        with add.li(klass="page-item"):
-            add.a(klass="page-item", href="#", _t="Next")
+    with kwargs['add'].ul(klass="pagination"):
+        with kwargs['add'].li(klass="page-item"):
+            kwargs['add'].a(klass="page-item", href="#", _t="Previous")
+        with kwargs['add'].li(klass="page-item"):
+            kwargs['add'].a(klass="page-item", href="#", _t="1")
+        with kwargs['add'].li(klass="page-item"):
+            kwargs['add'].a(klass="page-item", href="#", _t="2")
+        with kwargs['add'].li(klass="page-item"):
+            kwargs['add'].a(klass="page-item", href="#", _t="3")
+        with kwargs['add'].li(klass="page-item"):
+            kwargs['add'].a(klass="page-item", href="#", _t="Next")
 
 
-def getParagraph(add):
+def getParagraph(**kwargs):
     print("paragraph...")
-    with add.p(klass="text-black-50"):
-        add("Lorem ipsum dolor sit amet, consectetur adipiscing elit \
+    with kwargs['add'].p(klass="text-black-50"):
+        kwargs['add']("Lorem ipsum dolor sit amet, consectetur adipiscing elit \
         <br /> \
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \
         <br /> \
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris")
 
 
-def getRadioButton(add, names):
+def getRadioButton(**kwargs):
     print("radio_button...")
-    with add.div(klass="form-check"):
-        add.input(type="radio", klass="form-check-input", name="radio_button1", id="radio_button1")
-        string = ['<label class="form-check-label" for="sample_check1">', names, '</label>']
+    with kwargs['add'].div(klass="form-check"):
+        kwargs['add'].input(type="radio", klass="form-check-input", name="radio_button1", id="radio_button1")
+        string = ['<label class="form-check-label" for="sample_check1">', kwargs['text'], '</label>']
         # add._doc_elements.append(i)
         for i in string:
-            add._doc_elements.append(i)
+            kwargs['add']._doc_elements.append(i)
 
 
-def getSelect(add):
+def getSelect(**kwargs):
     print("select...")
-    with add.select(klass="form-select"):
-        add.option(value="0", _t="Select your choice")
-        add.option(value="1", _t="OptionOne")
-        add.option(value="2", _t="OptionTwo")
-        add.option(value="3", _t="OptionThree")
+    with kwargs['add'].select(klass="form-select"):
+        kwargs['add'].option(value="0", _t="Select your choice")
+        kwargs['add'].option(value="1", _t="OptionOne")
+        kwargs['add'].option(value="2", _t="OptionTwo")
+        kwargs['add'].option(value="3", _t="OptionThree")
 
 
-def getTable(add):
+def getTable(**kwargs):
     print("table...")
-    with add.table():
-        with add.thead().tr():
-            add.th(scope="col", _t="#")
-            add.th(scope="col")
-            add.th(scope="col")
-            add.th(scope="col")
-        with add.tbody():
-            with add.tr():
-                add.th(scope="row", _t="1")
-                add.td()
-                add.td()
-                add.td()
-                add.th(scope="row", _t="1")
-                add.td()
-                add.td()
-                add.td()
-            with add.tr():
-                add.th(scope="row", _t="3")
-                add.td(colspan="2")
-                add.td()
+    with kwargs['add'].table():
+        with kwargs['add'].thead().tr():
+            kwargs['add'].th(scope="col", _t="#")
+            kwargs['add'].th(scope="col")
+            kwargs['add'].th(scope="col")
+            kwargs['add'].th(scope="col")
+        with kwargs['add'].tbody():
+            with kwargs['add'].tr():
+                kwargs['add'].th(scope="row", _t="1")
+                kwargs['add'].td()
+                kwargs['add'].td()
+                kwargs['add'].td()
+                kwargs['add'].th(scope="row", _t="1")
+                kwargs['add'].td()
+                kwargs['add'].td()
+                kwargs['add'].td()
+            with kwargs['add'].tr():
+                kwargs['add'].th(scope="row", _t="3")
+                kwargs['add'].td(colspan="2")
+                kwargs['add'].td()
 
 
-def getTextarea(add):
+def getTextarea(**kwargs):
     print("textarea...")
-    add.textarea(rows="9", cols="40")
+    kwargs['add'].textarea(rows="9", cols="40")
 
 
-def getTextBox(add):
+def getTextBox(**kwargs):
     print("textbox...")
-    add.input(type='text', name="sample_textbox")
+
+    kwargs['add'].input(type='text', name="sample_textbox")
 
 
-def getElements(add, label, name="No value"):
+actions = [getHeading, getButton, None, getCheckbox, getImage, getLink, getPagination, getParagraph, getRadioButton,
+           getSelect, getTable, getTextarea, getTextBox]
 
-    if (label == 1):
-        getButton(add, name)
-    elif (label == 2):
-        string = getCarousel(add)
+def getElements(add, label, text="No value"):
+
+    if(label == 2):
+        string = getCarousel()
         for i in string:
             add._doc_elements.append(i)
-    elif (label == 3):
-        getCheckbox(add, name)
-    elif (label == 4):
-        getHeading(add, name)
-    elif (label == 5):
-        getImage(add)
-    elif (label == 6):
-        getLabel(add, name)
-    elif (label == 7):
-        getLink(add, name)
-    elif (label == 8):
-        getPagination(add)
-    elif (label == 9):
-        getParagraph(add)
-    elif (label == 10):
-        getRadioButton(add, name)
-    elif (label == 11):
-        getSelect(add)
-    elif (label == 12):
-        getTable(add)
-    elif (label == 13):
-        getTextarea(add)
-    elif (label == 14):
-        getTextBox(add)
-    else:
-        print("Invalid or Null Label occurred", label)
+        return
+
+
+    actions[label](add=add, text=text)
+
+    # if(label == 0):
+    #     getHeading(add, name)
+    # elif (label == 1):
+    #     getButton(add, name)
+    # elif (label == 2):
+    #     string = getCarousel(add)
+    #     for i in string:
+    #         add._doc_elements.append(i)
+    # elif (label == 3):
+    #     getCheckbox(add, name)
+    # # elif (label == 4):
+    # #     getHeading(add, name)
+    # elif (label == 4):
+    #     getImage(add)
+    # elif (label == 5):
+    #     getLink(add, name)
+    # elif (label == 6):
+    #     getPagination(add)
+    # elif (label == 7):
+    #     getParagraph(add)
+    # elif (label == 8):
+    #     getRadioButton(add, name)
+    # elif (label == 9):
+    #     getSelect(add)
+    # elif (label == 10):
+    #     getTable(add)
+    # elif (label == 11):
+    #     getTextarea(add)
+    # elif (label == 12):
+    #     getTextBox(add)
+    # else:
+    #     print("Invalid or Null Label occurred", label)

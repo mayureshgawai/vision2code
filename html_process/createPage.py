@@ -1,15 +1,19 @@
 from airium import Airium
 from app_logger.logger import logging
 from html_process.elements import getElements
+from html_process.elements import getElements
 from app_exception import AppException
 from app_logger.logger import logging
 import os
 import sys
+from html_process.ocr import ApplyOCR
 
 class CreateHTML:
-    def __init__(self, yamlFile):
+    def __init__(self, yamlFile, image):
+        self.image = image
         self.add = Airium()
         self.parsed_yaml = yamlFile
+        self.ocr = ApplyOCR(self.parsed_yaml, self.image)
 
 
     def generate(self, rows):
@@ -54,11 +58,10 @@ class CreateHTML:
                                     with self.add.div(klass="col d-flex flex-column align-items-start",
                                                  style="pself.adding-top:10px;"):
                                         for box in col:
-                                            if (box[-1] == 1 or box[-1] == 3 or box[-1] == 4 or box[-1] == 6 or
-                                                    box[-1] == 7 or box[-1] == 10):
-                                                # text = getOCRText(img)
-                                                getElements(self.add, box[-1])
-
+                                            if (box[-1] == 0 or box[-1] == 1 or box[-1] == 3 or box[-1] == 5 or
+                                                    box[-1] == 8):
+                                                text = self.ocr.getOCRText(box)
+                                                getElements(self.add, box[-1], text)
                                                 # str(self.add)
                                             else:
                                                 getElements(self.add, box[-1])
@@ -69,9 +72,14 @@ class CreateHTML:
             # print(html)
             logging.info("Saving HTML File...")
             dir = os.path.join(self.parsed_yaml['root_dir'], self.parsed_yaml['prediction']['out_dir'])
-            file = os.path.join(dir, 'HTMLOutput.html')
-            with open(file, 'a') as f:
-                f.write(html)
+
+            # if(len(os.listdir(dir)) > 0):
+            #     os.rm
+            return html
+
+            # file = os.path.join(dir, 'HTMLOutput.html')
+            # with open(file, 'a') as f:
+            #     f.write(html)
 
             logging.info("HTML File Saved Successfully...")
         except Exception as e:

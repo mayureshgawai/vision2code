@@ -5,24 +5,47 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
-  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
-  <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
+
+  <style>
+
+  </style>
 </head>
-<style>
 
-</style>
-
-<body>
-
+<body style="overflow-y: hidden;background-color: #dab78929;">
+  <svg style="position: absolute; top: 22%; bottom: 0; left: 0; right: 0;z-index: -1" width="100%" height="100%"
+    id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg"
+    class="transition duration-300 ease-in-out delay-150">
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+        <stop offset="5%" stop-color="#0693e3"></stop>
+        <stop offset="95%" stop-color="#7bdcb5"></stop>
+      </linearGradient>
+    </defs>
+    <path
+      d="M 0,600 C 0,600 0,200 0,200 C 74.16267942583733,212.80382775119617 148.32535885167465,225.60765550239233 247,234 C 345.67464114832535,242.39234449760767 468.8612440191388,246.3732057416268 575,231 C 681.1387559808612,215.6267942583732 770.2296650717706,180.89952153110048 857,188 C 943.7703349282294,195.10047846889952 1028.2200956937797,244.0287081339713 1125,253 C 1221.7799043062203,261.9712918660287 1330.8899521531102,230.98564593301435 1440,200 C 1440,200 1440,600 1440,600 Z"
+      stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53"
+      class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+        <stop offset="5%" stop-color="#0693e3"></stop>
+        <stop offset="95%" stop-color="#7bdcb5"></stop>
+      </linearGradient>
+    </defs>
+    <path
+      d="M 0,600 C 0,600 0,400 0,400 C 104.29665071770336,405.8086124401914 208.59330143540672,411.61722488038276 306,414 C 403.4066985645933,416.38277511961724 493.92344497607655,415.33971291866027 574,390 C 654.0765550239234,364.66028708133973 723.712918660287,315.02392344497616 830,332 C 936.287081339713,348.97607655502384 1079.2248803827752,432.56459330143537 1187,455 C 1294.7751196172248,477.43540669856463 1367.3875598086124,438.7177033492823 1440,400 C 1440,400 1440,600 1440,600 Z"
+      stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1"
+      class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
+  </svg>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Vision2Code</a>
+      <a class="navbar-brand" style="font-weight: 600; font-style: italic; color: rgb(9, 149, 226)"
+        href="#">Vision2Code</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,74 +53,93 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">About</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">About</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container-fluid">
-    <h3 class="display-3 text-center text-black-50">Vision2Code</h3>
+  <div class="container-fluid pt-2">
 
     <div class="container mt-5">
 
       <div class="row gx-5">
         <div class="col">
-          <div class="card text-bg-dark">
-            <img src="{{ url_for('static', filename='3.jpg') }}" name="inputImg" id="inputImg1" class="card-img" alt="...">
+          <div class="card text-bg-dark border-light shadow-lg">
+            <img src="{{ url_for('static', filename='3.jpg') }}" name="inputImg" id="inputImg1" class="card-img"
+              alt="...">
             <div class="card-img-overlay d-flex align-items-end justify-content-center ">
-              <button class="btn btn-primary flex-fill">Upload Sample</button>
+              <form action="/sample" method="POST">
+                <input type="hidden" name="name" value="3.jpg">
+                <button class="btn btn-dark flex-fill">Upload Sample</button>
+              </form>
             </div>
           </div>
         </div>
 
         <div class="col">
-          <div class="card text-bg-dark">
-            <img src="{{ url_for('static', filename='4.png') }}" name="inputImg" id="inputImg2" class="card-img" alt="...">
+          <div class="card text-bg-dark border-light shadow-lg" style="height: 100%;">
+            <img src="{{ url_for('static', filename='4.png') }}" style="height: 100%;" name="inputImg" id="inputImg2"
+              class="card-img" alt="...">
             <div class="card-img-overlay d-flex align-items-end justify-content-center ">
-              <button class="btn btn-primary flex-fill">Upload Sample</button>
+              <form action="/sample" method="POST">
+                <input type="hidden" name="name" value="4.png">
+                <button class="btn btn-dark flex-fill">Upload Sample</button>
+              </form>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card text-bg-dark">
-            <img src="{{ url_for('static', filename='5.jpg') }}" name="inputImg" id="inputImg3" class="card-img" alt="...">
+          <div class="card text-bg-dark border-light shadow-lg">
+            <img src="{{ url_for('static', filename='5.jpg') }}" name="inputImg" id="inputImg3" class="card-img"
+              alt="...">
             <div class="card-img-overlay d-flex align-items-end justify-content-center ">
-              <button class="btn btn-primary flex-fill">Upload Sample</button>
+              <form action="/sample" method="POST">
+                <input type="hidden" name="name" value="5.jpg">
+                <button class="btn btn-dark flex-fill">Upload Sample</button>
+              </form>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card text-bg-dark">
-            <img src="{{ url_for('static', filename='3.jpg') }}" name="inputImg" id="inputImg4" class="card-img" alt="...">
+          <div class="card text-bg-dark border-light shadow-lg" style="height: 100%;">
+            <img src="{{ url_for('static', filename='image2.jpg') }}" style="height: 100%;" name="inputImg"
+              id="inputImg4" class="card-img" alt="...">
             <div class="card-img-overlay d-flex align-items-end justify-content-center ">
-              <button class="btn btn-primary flex-fill">Upload Sample</button>
+              <form action="/sample" method="POST">
+                <input type="hidden" name="name" value="image2.jpg">
+                <button class="btn btn-dark flex-fill">Upload Sample</button>
+              </form>
             </div>
           </div>
         </div>
 
       </div>
-      
-      <form action="/detectObject" method="POST" enctype="multipart/form-data">
 
+      <div style="max-width: 500px; margin-top: 70px" class="cotainer mx-auto">
+        <h3 class="text-center text-dark">Upload your own image</h3>
+        <form action="/detectObject" method="POST" enctype="multipart/form-data">
           <div class="row mt-5">
-          
-            <div class="col">
+            <div class="col-1"></div>
+            <div class="col-7">
               <div class="input-group">
-                <input type="file" class="form-control" name="inputImg" id="inputImg" aria-describedby="inputGroupFileAddon04" aria-label="Upload" >
+                <input type="file" class="form-control" name="inputImg" id="inputImg"
+                  aria-describedby="inputGroupFileAddon04" aria-label="Upload">
               </div>
             </div>
-            
-            <div class="col ">
-              <button type="submit" class="btn btn-primary px-5">Submit</button>
+
+            <div class="col-3">
+              <button type="submit" class="btn btn-light px-5">Submit</button>
             </div>
           </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-
 </body>
 
 </html>

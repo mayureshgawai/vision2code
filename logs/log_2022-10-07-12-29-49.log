@@ -1,6 +1,0 @@
-[2022-10-07 12:29:50,196] werkzeug - WARNING -  * Debugger is active!
-[2022-10-07 12:29:50,210] werkzeug - INFO -  * Debugger PIN: 565-558-316
-[2022-10-07 12:29:50,765] werkzeug - INFO - 127.0.0.1 - - [07/Oct/2022 12:29:50] "GET / HTTP/1.1" 200 -
-[2022-10-07 12:29:50,840] PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
-[2022-10-07 12:29:50,840] PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 41 8192
-[2022-10-07 12:30:46,999] werkzeug - INFO -  * Detected change in 'C:\\Users\\ASUS\\OneNeuron\\practice\\dt2_sk2co\\html_process\\__init__.py', reloading

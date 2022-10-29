@@ -6,18 +6,19 @@ import sys
 from html_process.createPage import CreateHTML
 
 class CreateAlignment:
-    def __init__(self, yamlFile):
+    def __init__(self, yamlFile, image):
+        self.image = image
         self.yamlFile = yamlFile
         self.utils = AppUtils()
-        self.chtml = CreateHTML(yamlFile)
+        self.chtml = CreateHTML(self.yamlFile, self.image)
 
 
-    def getRowsAndColumns(self, boxes, labels, rows, image):
+    def getRowsAndColumns(self, boxes, rows):
 
         '''
             Description: To get actual intuition about where the element is resides in sketch, we have to place it into
             specific row and column in the grid structure.
-            param: boxes, labels, rows, image
+            param: boxes, rows
             return:
         '''
 
@@ -62,9 +63,8 @@ class CreateAlignment:
 
             rows_new = self.utils.sortColumns(rows)
             logging.info("Calculated rows and columns all the Bboxes")
-
-            self.chtml.generate(rows_new)
+            return rows_new
 
         except Exception as e:
-            logging.error("Error occured while getting rows and column...", e)
+            logging.error("Error occurred while getting rows and column...", e)
             raise AppException(e, sys)

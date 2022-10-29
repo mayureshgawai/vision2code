@@ -8,13 +8,10 @@ import os
 import sys
 from app_exception import AppException
 
-
 import cv2
 from detectron2.utils.visualizer import ColorMode
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog, DatasetCatalog
-
-
 
 
 class TextDetection:
@@ -45,13 +42,7 @@ class TextDetection:
             image = cv2.resize(image, (480, 480))
             output = predictor(self.image)
             boxes = output["instances"].pred_boxes
-            labels = np.array(output["instances"].pred_classes.to("cpu"))+1
-
-            # register_coco_instances("sketches_test", {}, "data/test/_annotations.coco.json", "data/test")
-            test_metadata = MetadataCatalog.get("sketches_test")
-            v = Visualizer(image, test_metadata, scale=1.2, instance_mode=ColorMode.IMAGE_BW)
-            out = v.draw_instance_predictions(output["instances"].to("cpu"))
-            cv2.imwrite("save3.jpg", out.get_image())
+            labels = np.array(output["instances"].pred_classes.to("cpu"))
 
             return boxes, labels
 

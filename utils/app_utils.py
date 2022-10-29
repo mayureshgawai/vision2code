@@ -37,20 +37,24 @@ class AppUtils:
                 return True
         return False
 
-    def checkDistanceForExact(self, points):
+    def checkDistanceForExact(self, points, horizontal=False):
+
+        Fixed = 65
+        if(horizontal):
+            Fixed = 0.05
 
         dist = points[0] - points[1]
 
         # for t
         total = points[2] - points[3]
         t_dist = (dist / total) * 100
-        if(t_dist >= 65):
+        if(t_dist >= Fixed):
             return True
 
         # for h
         total_h = points[4] - points[5]
         h_dist = (dist / total_h) * 100
-        if (h_dist >= 65):
+        if (h_dist >= Fixed):
             return True
         return False
 
@@ -83,7 +87,7 @@ class AppUtils:
             return: int
         '''
         try:
-            if (120 >= num > 0):
+            if (120 >= num >= 0):
                 return 0
             elif (240 >= num > 120):
                 return 1
@@ -120,7 +124,7 @@ class AppUtils:
             elif (distance2 > distance1):
                 actualRow = row_num2
 
-            logging.info("Calculated row number for row_num1:" + str(row_num1) + " row_num2" + str(row_num1) + " is "
+            logging.info("Calculated row number for row_num1:" + str(row_num1) + " row_num2:" + str(row_num1) + " is:"
                          +str(actualRow))
 
             return actualRow

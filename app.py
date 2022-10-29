@@ -7,6 +7,7 @@ from detection import ImageDetection
 import logging
 import yaml
 import cv2
+import os
 from PIL import Image
 import numpy as np
 from image_processor import ImageProcessor
@@ -51,14 +52,38 @@ def detectObject():
             # img.save(os.path.join("temp_data", img.filename))
 
             processor = ImageProcessor(yamlFile, image)
-            processor.process()
+            htmlOp = processor.process()
 
-            return "Uploaded Successfully"
+            return render_template("output.html", output=htmlOp)
 
     except Exception as e:
         logging.error("Error occured while detection", e)
         return "Upload Failed"
 
+
+@app.route('/sample', methods=['GET', 'POST'])
+@cross_origin()
+def sample():
+    try:
+        if request.method == 'POST':
+            img = request.form["name"]
+            print(img, type(img))
+            img = os.path.join("static", img)
+            print("=====>", img)
+            image = Image.open(img)
+            image = np.array(image)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            image = cv2.resize(image, (480, 480))
+            # img.save(os.path.join("temp_data", img.filename))
+
+            processor = ImageProcessor(yamlFile, image)
+            htmlOp = processor.process()
+
+            return render_template("output.html", output=htmlOp)
+
+    except Exception as e:
+        logging.error("Error occured while detection", e)
+        return "Upload Failed"
 
 @app.route('/download', methods=['GET', 'POST'])
 @cross_origin()
