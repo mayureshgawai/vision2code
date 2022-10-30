@@ -48,7 +48,6 @@ class ImageProcessor:
             logging.info("Text Detection and conversion stage begins here")
 
             box_text, labels_text = self.textDetect.detection()
-            box_text, labels_text = self.textDetect.detection()
             box_text = np.array(box_text.to("cpu"))
 
             boxes_text = []

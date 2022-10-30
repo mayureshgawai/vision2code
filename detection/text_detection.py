@@ -38,8 +38,8 @@ class TextDetection:
 
             predictor = DefaultPredictor(cfg)
 
-            image = cv2.imread("save1.jpg")
-            image = cv2.resize(image, (480, 480))
+            # image = cv2.imread("save1.jpg")
+            # image = cv2.resize(self.image, (480, 480))
             output = predictor(self.image)
             boxes = output["instances"].pred_boxes
             labels = np.array(output["instances"].pred_classes.to("cpu"))
