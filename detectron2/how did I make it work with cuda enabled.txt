@@ -4,14 +4,17 @@
 4. For cuda 11.3, I downloaded "Microsoft Visual Studio 2017 version 15.9.5" (it was mentioned in error stmt)
 (actually you can download any pytorch version but make sure that you download correct version of Microsoft Visual Studio. For torch==1.12.1,
 Microsoft Visual Studio betweeen 2017 and 2019 works.)
-5. you'll need MSC version 1916 or VC++ version 14.16 for compiling its c++ libraries, you can select this from "Individual component" of visual studio installer and also install default selected components of VC++ build tools.
-6. you can also check the VC++ and MSC version to install for particular Microsoft Visual Studio that you have downloaded on "https://dev.to/yumetodo/list-of-mscver-and-mscfullver-8nd#note-t1-2"
+5. you'll need MSC version 1916 or VC++ version 14.16 for compiling its c++ libraries, you can select this from "Individual component" of visual studio installer and also install default 
+   selected components of VC++ build tools.
+6. you can also check the VC++ and MSC version to install for particular Microsoft Visual Studio that you have downloaded on 
+   "https://dev.to/yumetodo/list-of-mscver-and-mscfullver-8nd#note-t1-2"
 7. pip install cython and pycocotools
 8. clone the detectron2 repo "git clone https://github.com/facebookresearch/detectron2.git"
-9. Comment the code i.e. "ifdef WITH_CUDA" and "ifdef WITH_HIP" (which will be at imports) of "C:\Users\ASUS\OneNeuron\practice\dt2_sk2co\detectron2\detectron2\layers\csrc\nms_rotated_cuda.cu"
+9. Comment the code i.e. "ifdef WITH_CUDA" and "ifdef WITH_HIP" (which will be at imports) of 
+   "C:\Users\ASUS\OneNeuron\practice\dt2_sk2co\detectron2\detectron2\layers\csrc\nms_rotated_cuda.cu"
 10. pip install opencv-python
 11. test the inastallation with test_window.py (https://github.com/yogeshkumarpilli/detectron2/blob/master/tests/test_window.py)
-(if it opens the window then detectron2 successfully installed witg cuda enabled)
+(if it opens the window then detectron2 successfully installed with cuda enabled)
 
 
 

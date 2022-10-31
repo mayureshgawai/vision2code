@@ -9,7 +9,7 @@ from html_process import CreateAlignment
 from html_process import TextAlignment
 from html_process import CreateHTML
 
-ROWS = [[], [], [], []]
+
 
 class ImageProcessor:
     def __init__(self, yamlFile, image):
@@ -71,7 +71,7 @@ class ImageProcessor:
             # Now we can move to the phase of HTML creation.
             # First we divide the elements row and columns wise.
             logging.info("HTML creation stage begins here")
-            rows = self.htmlprocess.getRowsAndColumns(boxes, ROWS)
+            rows = self.htmlprocess.getRowsAndColumns(boxes)
             # generate(list, numpy.array()) method will create the html string list for us which we will further be
             # converted into code.
             htmlOp = self.html.generate(rows)

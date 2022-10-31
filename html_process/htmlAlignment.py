@@ -13,8 +13,8 @@ class CreateAlignment:
         self.chtml = CreateHTML(self.yamlFile, self.image)
 
 
-    def getRowsAndColumns(self, boxes, rows):
-
+    def getRowsAndColumns(self, boxes):
+        rows = [[], [], [], []]
         '''
             Description: To get actual intuition about where the element is resides in sketch, we have to place it into
             specific row and column in the grid structure.

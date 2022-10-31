@@ -25,10 +25,15 @@ def getCarousel():
               '<li data-target="#carousel" data-slide-to="1"></li>',
               '<li data-target="#carousel" data-slide-to="2"></li>', '</ol>',
               '<div class="carousel-inner" >', '<div class="item active">',
-              '<img src="image.jpg" class="d-block w-100" alt="Any alternative" >',
-              '</div>', '<div class="item">', '<img src="image.jpg" class="d-block w-100" alt="Any alternative" >',
+              '<img src="https://www.iconsdb.com/icons/preview/gray/image-file-xxl.png" '
+                                    'class="d-block w-100" alt="Any alternative" >',
               '</div>',
-              '<div class="item">', '<img src="image.jpg" class="d-block w-100" alt="Any alternative" >', '</div>',
+              '<div class="item">', '<img src="https://www.iconsdb.com/icons/preview/gray/image-file-xxl.png"'
+                                              ' class="d-block w-100" alt="Any alternative" >',
+              '</div>',
+              '<div class="item">', '<img src="https://www.iconsdb.com/icons/preview/gray/image-file-xxl.png"'
+                                    ' class="d-block w-100" alt="Any alternative" >',
+              '</div>',
               '<a class="left carousel-control" href="#myCarousel" data-slide="prev">',
               '<span class="glyphicon glyphicon-chevron-left"></span>',
               '<span class="sr-only">Previous</span>', '</a>',
@@ -51,7 +56,7 @@ def getHeadingsTop(**kwargs):
 
 def getImage(**kwargs):
     print("image...")
-    kwargs['add'].img(src="https://fakeimg.pl/480/", klass="img-fluid mt-4", alt="Any alternative")
+    kwargs['add'].img(src="https://www.iconsdb.com/icons/preview/gray/image-file-xxl.png", klass="img-fluid mt-4", alt="Any alternative")
 
 
 def getLabel(**kwargs):
@@ -155,39 +160,4 @@ def getElements(add, label, text="No value"):
         for i in string:
             add._doc_elements.append(i)
         return
-
-
     actions[label](add=add, text=text)
-
-    # if(label == 0):
-    #     getHeading(add, name)
-    # elif (label == 1):
-    #     getButton(add, name)
-    # elif (label == 2):
-    #     string = getCarousel(add)
-    #     for i in string:
-    #         add._doc_elements.append(i)
-    # elif (label == 3):
-    #     getCheckbox(add, name)
-    # # elif (label == 4):
-    # #     getHeading(add, name)
-    # elif (label == 4):
-    #     getImage(add)
-    # elif (label == 5):
-    #     getLink(add, name)
-    # elif (label == 6):
-    #     getPagination(add)
-    # elif (label == 7):
-    #     getParagraph(add)
-    # elif (label == 8):
-    #     getRadioButton(add, name)
-    # elif (label == 9):
-    #     getSelect(add)
-    # elif (label == 10):
-    #     getTable(add)
-    # elif (label == 11):
-    #     getTextarea(add)
-    # elif (label == 12):
-    #     getTextBox(add)
-    # else:
-    #     print("Invalid or Null Label occurred", label)

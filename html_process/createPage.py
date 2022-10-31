@@ -66,22 +66,20 @@ class CreateHTML:
                                             else:
                                                 getElements(self.add, box[-1])
 
+            html = ""
             html = str(self.add)
 
             logging.info("Finished generating HTML File")
-            # print(html)
-            logging.info("Saving HTML File...")
-            dir = os.path.join(self.parsed_yaml['root_dir'], self.parsed_yaml['prediction']['out_dir'])
+            # logging.info("Saving HTML File...")
+            # dir = os.path.join(self.parsed_yaml['root_dir'], self.parsed_yaml['prediction']['out_dir'])
 
-            # if(len(os.listdir(dir)) > 0):
-            #     os.rm
             return html
 
             # file = os.path.join(dir, 'HTMLOutput.html')
             # with open(file, 'a') as f:
             #     f.write(html)
 
-            logging.info("HTML File Saved Successfully...")
+            # logging.info("HTML File Saved Successfully...")
         except Exception as e:
-            logging.error("Error occurred while generating HTML")
-            raise AppException(e, sys)
+            logging.error("Error occurred while generating HTML. ", e)
+            # raise AppException(e, sys)

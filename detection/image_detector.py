@@ -2,7 +2,7 @@ import logging
 import cv2
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
-import os, json, random
+import os
 from detectron2 import model_zoo
 import numpy as np
 
@@ -40,7 +40,10 @@ class ImageDetection :
             labels = np.array(output["instances"].pred_classes.to("cpu"))+1
 
 
-
+            logging.info("Boxes:")
+            logging.info(boxes)
+            logging.info("Labels:")
+            logging.info(labels)
 
             return boxes, labels
 

@@ -1,6 +1,6 @@
 # Introduction
 
-Vision2Code is an website where users can upload hand drawn pictures of html page and it will convert them to an actual HTML Page which you can copy.
+Vision2Code is an website where users can upload hand drawn pictures of html page and it will convert them to an actual HTML Code that user can copy.
 
 
 <div align="center">
