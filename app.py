@@ -85,4 +85,5 @@ def sample():
 
 
 if(__name__) == '__main__':
-    app.run(port=5000, debug=True)
+    print(os.environ["PORT"])
+    app.run(port=os.environ["PORT"], debug=False)
