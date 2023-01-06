@@ -19,6 +19,7 @@ class ImageDetection :
         try:
             # Configurations
             cfg = get_cfg()
+            cfg.MODEL.DEVICE = "cpu"
             cfg.merge_from_file(model_zoo.get_config_file(self.yaml['detection_config']['config_file']))
             cfg.MODEL.ROI_HEADS.NUM_CLASSES = self.yaml['detection_config']['num_classes']
             cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = self.yaml['detection_config']['score_thresh_test']
@@ -28,7 +29,7 @@ class ImageDetection :
             drcty = os.getcwd()
             path = os.path.join(drcty, "output")
 
-            
+            cfg.MODEL.DEVICE = "cpu"
 
             modelCheck = os.listdir(path)
             print(modelCheck)

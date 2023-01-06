@@ -1,5 +1,6 @@
 _BASE_: "Base-RCNN-FPN.yaml"
 MODEL:
+  DEVICE: "cpu"
   ROI_HEADS:
     NUM_CLASSES: 2
     SCORE_THRESH_TEST: 0.7

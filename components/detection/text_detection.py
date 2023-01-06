@@ -33,10 +33,10 @@ class TextDetection:
                 s3.download_file("dt2tdmodel", 'model_final.pth', path + "model_final_td.pth")
 
             parser = default_argument_parser()
-            args = parser.parse_args(str("--config-file "+self.yamlFile['text_detection']['config_file']+
-                                     " MODEL.WEIGHTS "+ os.path.join(
+            args = parser.parse_args(str("--config-file "+self.yamlFile['text_detection']['config_file'] +
+                                     " MODEL.WEIGHTS " + os.path.join(
                                         self.yamlFile['text_detection']['model_folder'],
-                                        self.yamlFile['text_detection']['model_name']
+                                        self.yamlFile['text_detection']['model_name'],
                                     )).split())
 
             # cfg.MODEL.WEIGHTS = os.path.join(self.yaml['detection_config']['model_folder'],
