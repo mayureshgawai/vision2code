@@ -110,9 +110,9 @@ PyQt5-sip==12.11.0
 pyquery==1.4.3
 pyrsistent==0.18.0
 PySocks==1.7.1
-pytesseract==0.3.10
+#pytesseract==0.3.10
 python-dateutil==2.8.2
-pywin32==304
+#pywin32==304
 pywinpty==2.0.2
 PyYAML==6.0
 pyzmq==23.2.0
@@ -156,8 +156,3 @@ zipp==3.8.1
 openmim
 mmcv-full
 mmdet
-
-#-r mmocr-ocr/requirements/build.txt
-#-r mmocr-ocr/requirements/optional.txt
-#-r mmocr-ocr/requirements/runtime.txt
-#-r mmocr-ocr/requirements/tests.txt
