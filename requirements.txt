@@ -157,7 +157,7 @@ openmim
 mmcv-full
 mmdet
 
--r mmocr-ocr/requirements/build.txt
--r mmocr-ocr/requirements/optional.txt
--r mmocr-ocr/requirements/runtime.txt
--r mmocr-ocr/requirements/tests.txt
+#-r mmocr-ocr/requirements/build.txt
+#-r mmocr-ocr/requirements/optional.txt
+#-r mmocr-ocr/requirements/runtime.txt
+#-r mmocr-ocr/requirements/tests.txt
