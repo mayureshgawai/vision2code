@@ -1,0 +1,27 @@
+root_dir: 'C:\Users\ASUS\OneNeuron\practice\dt2_sk2co'
+
+prediction:
+  temp_data: './temp_data'
+  out_dir: "HTML output"
+  ocr_config: "--oem 3--psm 6"
+
+ocr:
+  detection: "PS_CTW"
+  recognition: "NRTR_1/8-1/4"
+  config_dir: "components/mmocr_ocr/configs"
+
+text_detection:
+  config_file: "config/faster_rcnn_R_101_FPN_3x.yaml"
+  num_classes: 1
+  score_thresh_test: 0.7
+  base_lr: 0.00025
+  model_name: 'model_final_td.pth'
+  model_folder: 'text_detection_model'
+
+
+detection_config:
+  config_file: "COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"
+  num_classes: 12
+  score_thresh_test: 0.7
+  model_name: 'model_final_od.pth'
+  model_folder: 'output'

@@ -1,0 +1,4 @@
+[2022-10-31 22:32:56,666] matplotlib.pyplot - DEBUG - Loaded backend TkAgg version unknown.
+[2022-10-31 22:32:56,796] shapely.geos - DEBUG - Found GEOS DLL: <CDLL 'C:\Users\ASUS\anaconda3\envs\dt_2_new\lib\site-packages\Shapely.libs\geos_c-84d02d5b10aa37e3ab60a885dc5b531b.dll', handle 7ffcc5a50000 at 0x24740a167f0>, using it.
+[2022-10-31 22:32:57,900] werkzeug - WARNING -  * Debugger is active!
+[2022-10-31 22:32:57,921] werkzeug - INFO -  * Debugger PIN: 565-558-316

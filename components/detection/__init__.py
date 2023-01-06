@@ -1,0 +1,2 @@
+from components.detection.image_detector import ImageDetection
+from components.detection.text_detection import TextDetection
