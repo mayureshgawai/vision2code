@@ -34,6 +34,7 @@ class ImageDetection :
             modelCheck = os.listdir(path)
             print(modelCheck)
             if(self.yaml['detection_config']['model_name'] not in modelCheck):
+                print("downloading od model using boto3")
                 s3 = boto3.client('s3')
                 s3.download_file("dt2odmodel", 'model_final.pth', path + "model_final_od.pth")
 

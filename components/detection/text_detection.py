@@ -29,6 +29,7 @@ class TextDetection:
 
             print(self.yamlFile['text_detection']['model_name'])
             if(self.yamlFile['text_detection']['model_name'] not in modelCheck):
+                print("downloading td model using boto3")
                 s3 = boto3.client('s3')
                 s3.download_file("dt2tdmodel", 'model_final.pth', path + "model_final_td.pth")
 
