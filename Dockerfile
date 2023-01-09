@@ -2,6 +2,7 @@ FROM python:3.9
 COPY . /app
 WORKDIR /app
 
+RUN apt-get update
 RUN apt install -y libgl1-mesa-glx
 RUN pip install -r requirements.txt
 RUN pip install -r components/mmocr_ocr/requirements/build.txt
